@@ -12,7 +12,7 @@
 
   <style>
     :root{
-      /* Paleta profissional (branco + dourado da logo + preto suave) */
+      /* Paleta profissional (branco + vermelho principal + preto suave) */
       --bg: #ffffff;
       --bg2: #fbfbfe;
       --ink: #0B1220;
@@ -23,9 +23,10 @@
       --panel2: rgba(11,18,32,.06);
       --line: rgba(11,18,32,.10);
 
-      --brand: #FFD000;   /* cor da logo */
-      --brand2:#FFB000;
-      --brandInk:#241B00;
+      /* ✅ NOVA COR PRINCIPAL */
+      --brand: #dd3902;
+      --brand2:#ff4a16;
+      --brandInk:#ffffff;
 
       --wa:#25D366;
 
@@ -45,7 +46,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
       background:
-        radial-gradient(900px 520px at 15% 10%, rgba(255,208,0,.14), transparent 55%),
+        radial-gradient(900px 520px at 15% 10%, rgba(221,57,2,.14), transparent 55%),
         radial-gradient(900px 520px at 85% 18%, rgba(0,140,255,.08), transparent 55%),
         linear-gradient(180deg, var(--bg2) 0%, var(--bg) 50%, var(--bg2) 100%);
       overflow-x:hidden;
@@ -90,8 +91,8 @@
     .brand img{
       width:56px; height:56px;
       border-radius:16px;
-      background: rgba(255,208,0,.14);
-      border:1px solid rgba(255,176,0,.35);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.28);
       box-shadow: 0 14px 40px rgba(11,18,32,.10);
       object-fit:contain;
       padding:4px;
@@ -138,14 +139,15 @@
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.95); border-color: rgba(11,18,32,.16);}
     .btn:active{transform: translateY(0px) scale(.99);}
 
+    /* ✅ Botão principal agora vermelho */
     .btn-primary{
-      border-color: rgba(255,176,0,.55);
-      background: linear-gradient(180deg, rgba(255,208,0,.40), rgba(255,208,0,.18));
-      color: var(--brandInk);
-      box-shadow: 0 14px 34px rgba(255,176,0,.18);
+      border-color: rgba(221,57,2,.45);
+      background: linear-gradient(180deg, rgba(221,57,2,.22), rgba(221,57,2,.10));
+      color: #2a0b05;
+      box-shadow: 0 14px 34px rgba(221,57,2,.14);
     }
     .btn-primary:hover{
-      border-color: rgba(255,176,0,.75);
+      border-color: rgba(221,57,2,.65);
       filter: brightness(1.02);
     }
 
@@ -164,28 +166,30 @@
     }
     .btn-ghost:hover{background: rgba(11,18,32,.05);}
 
+    /* ✅ Botão "Grupo" também no tema vermelho */
     .btn-group{
-      border-color: rgba(255,176,0,.45);
-      background: rgba(255,208,0,.18);
-      color: var(--brandInk);
-      box-shadow: 0 14px 34px rgba(255,176,0,.14);
+      border-color: rgba(221,57,2,.35);
+      background: rgba(221,57,2,.10);
+      color: #2a0b05;
+      box-shadow: 0 14px 34px rgba(221,57,2,.10);
     }
     .btn-group:hover{filter: brightness(1.02); transform: translateY(-1px);}
 
+    /* ✅ Pill agora vermelho */
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
       border-radius:999px;
-      background: rgba(255,208,0,.14);
-      border:1px solid rgba(255,176,0,.30);
-      color: rgba(36,27,0,.82);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.25);
+      color: rgba(42,11,5,.85);
       font-size:12px;
       font-weight:800;
     }
     .dot{
       width:8px; height:8px; border-radius:999px;
-      background: var(--brand2);
-      box-shadow: 0 0 0 6px rgba(255,176,0,.16);
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(221,57,2,.16);
     }
 
     /* HERO */
@@ -203,8 +207,8 @@
       letter-spacing:-.9px;
     }
     .hero h1 .hl{
-      color: #8a6a00;
-      background: linear-gradient(180deg, rgba(255,208,0,.00), rgba(255,208,0,.32));
+      color: #7a1c06;
+      background: linear-gradient(180deg, rgba(221,57,2,.00), rgba(221,57,2,.22));
       border-radius:10px;
       padding: 0 6px;
     }
@@ -246,7 +250,7 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(520px 300px at 30% 0%, rgba(255,208,0,.18), transparent 60%),
+        radial-gradient(520px 300px at 30% 0%, rgba(221,57,2,.16), transparent 60%),
         radial-gradient(520px 300px at 90% 18%, rgba(0,140,255,.10), transparent 60%);
       opacity:.95;
       pointer-events:none;
@@ -277,12 +281,14 @@
       display:flex; gap:12px; align-items:flex-start;
       box-shadow: 0 10px 24px rgba(11,18,32,.05);
     }
+
+    /* ✅ Ícones dos cards em vermelho */
     .icon{
       width:40px; height:40px; border-radius:16px;
-      background: rgba(255,208,0,.18);
-      border:1px solid rgba(255,176,0,.30);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.22);
       display:flex; align-items:center; justify-content:center;
-      color: #8a6a00;
+      color: #7a1c06;
       flex:0 0 auto;
       font-weight: 900;
     }
@@ -345,10 +351,10 @@
       justify-content:center;
       width:34px; height:34px;
       border-radius: 14px;
-      background: rgba(255,208,0,.20);
-      border:1px solid rgba(255,176,0,.35);
+      background: rgba(221,57,2,.12);
+      border:1px solid rgba(221,57,2,.22);
       font-weight: 1000;
-      color: #7a5d00;
+      color: #7a1c06;
     }
     .step h3{margin:10px 0 6px; font-size:16px}
     .step p{margin:0; color:var(--muted); font-size:13.6px; line-height:1.6}
@@ -356,16 +362,18 @@
     /* PRICING */
     .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
     .price-card{position:relative; overflow:hidden;}
+
+    /* ✅ Badge vermelho */
     .badge{
       position:absolute; top:14px; right:14px;
       padding:8px 10px;
       border-radius:999px;
       font-size:12px;
       font-weight:1000;
-      color: var(--brandInk);
-      background: linear-gradient(180deg, rgba(255,208,0,.98), rgba(255,176,0,.98));
-      box-shadow: 0 14px 40px rgba(255,176,0,.16);
-      border:1px solid rgba(255,176,0,.35);
+      color: #fff;
+      background: linear-gradient(180deg, rgba(221,57,2,.98), rgba(255,74,22,.98));
+      box-shadow: 0 14px 40px rgba(221,57,2,.14);
+      border:1px solid rgba(221,57,2,.30);
     }
     .price-title{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 8px;}
     .price-title h3{margin:0; font-size:18px; letter-spacing:-.2px;}
@@ -378,12 +386,13 @@
       white-space:nowrap;
     }
 
+    /* ✅ preços em vermelho */
     .price{
       margin: 14px 0 10px;
       font-size: 30px;
       font-weight:1000;
       letter-spacing:-.8px;
-      color: #7a5d00;
+      color: #7a1c06;
     }
     .price small{
       font-size: 12.5px;
@@ -403,10 +412,12 @@
     }
     .muted{color:var(--muted); font-size:13px; line-height:1.6;}
     .hr{height:1px; background: rgba(11,18,32,.10); margin: 14px 0;}
+
+    /* ✅ destaque do pacote com vermelho */
     .highlight{
-      border-color: rgba(255,176,0,.55) !important;
+      border-color: rgba(221,57,2,.45) !important;
       background:
-        radial-gradient(700px 420px at 20% 0%, rgba(255,208,0,.22), transparent 60%),
+        radial-gradient(700px 420px at 20% 0%, rgba(221,57,2,.18), transparent 60%),
         rgba(255,255,255,.82);
       transform: translateY(-2px);
     }
@@ -437,7 +448,7 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(520px 320px at 30% 0%, rgba(255,208,0,.18), transparent 60%),
+        radial-gradient(520px 320px at 30% 0%, rgba(221,57,2,.14), transparent 60%),
         radial-gradient(520px 320px at 80% 25%, rgba(0,140,255,.08), transparent 60%);
       pointer-events:none;
       opacity:.95;
@@ -451,13 +462,15 @@
       overflow:hidden;
       margin-bottom:14px;
     }
+
+    /* ✅ barra do quiz em vermelho */
     .bar{
       height:100%;
       width:0%;
-      background: linear-gradient(90deg, rgba(255,208,0,.98), rgba(255,176,0,.98));
+      background: linear-gradient(90deg, rgba(221,57,2,.98), rgba(255,74,22,.98));
       border-radius:999px;
       transition: width .35s var(--ease);
-      box-shadow: 0 14px 40px rgba(255,176,0,.12);
+      box-shadow: 0 14px 40px rgba(221,57,2,.12);
     }
     .q-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
     .q-step{font-size:12px; color:var(--muted);}
@@ -474,14 +487,14 @@
       display:flex; gap:12px; align-items:flex-start;
       box-shadow: 0 10px 22px rgba(11,18,32,.05);
     }
-    .opt:hover{transform: translateY(-1px); border-color: rgba(255,176,0,.45); background: rgba(255,208,0,.12);}
+    .opt:hover{transform: translateY(-1px); border-color: rgba(221,57,2,.35); background: rgba(221,57,2,.08);}
     .opt .bullet{
       width:22px; height:22px; border-radius:10px;
       border:1px solid rgba(11,18,32,.12);
       background: rgba(11,18,32,.03);
       flex:0 0 auto;
       display:flex; align-items:center; justify-content:center;
-      color: #7a5d00;
+      color: #7a1c06;
       font-weight:1000;
       font-size:12px;
       margin-top:1px;
@@ -522,10 +535,10 @@
     .who{display:flex; align-items:center; gap:10px; margin-top: 14px; color: var(--muted); font-size:12.8px;}
     .avatar{
       width:34px; height:34px; border-radius:14px;
-      background: rgba(255,208,0,.18);
-      border:1px solid rgba(255,176,0,.28);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.22);
       display:flex; align-items:center; justify-content:center;
-      color: #7a5d00;
+      color: #7a1c06;
       font-weight: 1000;
     }
 
@@ -546,8 +559,8 @@
     .cta-band{
       padding: 18px;
       border-radius: var(--radius2);
-      border:1px solid rgba(255,176,0,.40);
-      background: radial-gradient(700px 420px at 20% 0%, rgba(255,208,0,.26), transparent 60%),
+      border:1px solid rgba(221,57,2,.28);
+      background: radial-gradient(700px 420px at 20% 0%, rgba(221,57,2,.18), transparent 60%),
                   rgba(255,255,255,.80);
       box-shadow: var(--shadow);
       display:flex;
@@ -589,18 +602,19 @@
     }
     .wa-float:hover{transform: translateY(-2px); filter: brightness(1.03);}
 
-    /* ✅ AQUI: trocamos o "WA" por um ícone */
+    /* ✅ ÍCONE WHATS MELHORADO (mais bonito e sem “WA”) */
     .wa-badge{
       width:34px; height:34px; border-radius:999px;
-      background: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.22);
       display:flex; align-items:center; justify-content:center;
       border:1px solid rgba(0,0,0,.06);
-      font-weight: 1000;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08) inset;
     }
     .wa-badge svg{
-      width:18px; height:18px;
+      width:19px; height:19px;
       display:block;
-      fill: currentColor; /* usa a cor do texto do botão */
+      fill:#ffffff; /* ícone branco dentro do badge */
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.20));
     }
 
     /* Anim */
@@ -1055,85 +1069,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section" id="prova">
-    <div class="wrap">
-      <div class="fade-in">
-        <h2>Prova social (coloque seus depoimentos reais aqui)</h2>
-        <p class="sub">Deixe esses exemplos como modelo e depois troque pelos depoimentos dos seus clientes.</p>
-      </div>
-
-      <div class="testi">
-        <div class="card fade-in">
-          <div class="pill"><span class="dot"></span> Mais mensagens</div>
-          <p class="quote">“Organizou meu Google e o site ficou direto. Comecei a receber contato todo dia.”</p>
-          <div class="who"><span class="avatar">A</span> Ana • Loja local</div>
-        </div>
-        <div class="card fade-in">
-          <div class="pill"><span class="dot"></span> Mais confiança</div>
-          <p class="quote">“Antes eu parecia amador. Agora o perfil e o site passam muita credibilidade.”</p>
-          <div class="who"><span class="avatar">R</span> Rafael • Serviços</div>
-        </div>
-        <div class="card fade-in">
-          <div class="pill"><span class="dot"></span> Aparecer no mapa</div>
-          <p class="quote">“Eu não aparecia no Google. Depois da otimização, me acham no ‘perto de mim’.”</p>
-          <div class="who"><span class="avatar">M</span> Marina • Beleza</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="wrap">
-      <div class="fade-in">
-        <h2>Dúvidas rápidas</h2>
-        <p class="sub">Sem enrolação — respostas claras para o cliente fechar com confiança.</p>
-      </div>
-
-      <div class="fade-in">
-        <details>
-          <summary>Quanto tempo para ficar pronto?</summary>
-          <p>Depende do pacote e do material (fotos/textos). Em geral, dá para sair do zero para o online rapidamente, com uma estrutura profissional.</p>
-        </details>
-
-        <details>
-          <summary>Preciso ter fotos profissionais?</summary>
-          <p>Ajuda, mas não é obrigatório. Dá para começar com boas fotos do celular e depois melhorar.</p>
-        </details>
-
-        <details>
-          <summary>Como funciona a mensalidade?</summary>
-          <p>A mensalidade mantém sua presença ativa: ajustes, suporte e (nos pacotes que incluem) posts mensais e melhorias de conversão.</p>
-        </details>
-
-        <details>
-          <summary>Vocês fazem anúncio pago?</summary>
-          <p>O foco inicial é presença local + estrutura de conversão. Depois, se fizer sentido, dá para evoluir para anúncios como “fase 2”.</p>
-        </details>
-
-        <details>
-          <summary>Como eu contrato?</summary>
-          <p>Clique em WhatsApp, fale com a gente, e você recebe os próximos passos. Se quiser, faça o diagnóstico para já ir com o pacote ideal.</p>
-        </details>
-      </div>
-
-      <div class="spacer"></div>
-
-      <div class="cta-band fade-in">
-        <div>
-          <h3>Pronto para virar referência na sua cidade?</h3>
-          <p>Chame no WhatsApp e diga seu segmento/cidade. A gente te orienta com um plano claro.</p>
-        </div>
-        <div class="cta-row">
-          <button class="btn btn-wa" id="btnFooterCtaWhats">Chamar no WhatsApp</button>
-          <button class="btn btn-group" id="btnGroupFooter2">Grupo Divulgação Livre</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- FOOTER + WHATS FLOAT -->
   <footer>
     <div class="wrap foot">
       <div>
@@ -1170,7 +1106,7 @@
   <!-- Floating WhatsApp -->
   <a class="wa-float" id="waFloat" href="#" aria-label="Falar no WhatsApp">
     <span class="wa-badge" aria-hidden="true">
-      <!-- Ícone WhatsApp (SVG inline) -->
+      <!-- Ícone WhatsApp (SVG) -->
       <svg viewBox="0 0 32 32" role="img" aria-label="WhatsApp">
         <path d="M19.1 17.5c-.3-.1-1.7-.8-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-1-2.2c-.3-.6-.6-.5-.7-.5H8.4c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.5s1 2.9 1.2 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3z"/>
         <path d="M26.6 5.4C23.7 2.5 19.9 1 16 1 8.3 1 2 7.3 2 15c0 2.5.7 4.9 1.9 7L2 31l9.2-1.8c2 1.1 4.3 1.7 6.6 1.7 7.7 0 14-6.3 14-14 0-3.9-1.5-7.7-4.2-10.5zM16 28.6c-2.2 0-4.3-.6-6.2-1.7l-.4-.2-5.5 1.1 1.2-5.4-.2-.5c-1.2-2-1.8-4.4-1.8-6.8C3.1 8.3 9.3 2.9 16 2.9c3.4 0 6.6 1.3 9 3.7 2.4 2.4 3.7 5.6 3.7 9 0 6.9-5.8 13-12.7 13z"/>
@@ -1198,7 +1134,6 @@
     const btnFooterWhats = document.getElementById("btnFooterWhats");
     const btnQuizWhats = document.getElementById("btnQuizWhats");
     const btnPricingWhats = document.getElementById("btnPricingWhats");
-    const btnFooterCtaWhats = document.getElementById("btnFooterCtaWhats");
     const waFloat = document.getElementById("waFloat");
 
     function openWhatsDefault(){
@@ -1206,7 +1141,7 @@
       window.open(waLink(msg), "_blank");
     }
 
-    [btnTopWhats, btnHeroWhats, btnFooterWhats, btnQuizWhats, btnPricingWhats, btnFooterCtaWhats].forEach(btn => {
+    [btnTopWhats, btnHeroWhats, btnFooterWhats, btnQuizWhats, btnPricingWhats].forEach(btn => {
       if(btn) btn.addEventListener("click", openWhatsDefault);
     });
 
@@ -1220,9 +1155,8 @@
     const btnGroupHero = document.getElementById("btnGroupHero");
     const btnGroupQuiz = document.getElementById("btnGroupQuiz");
     const btnGroupFooter = document.getElementById("btnGroupFooter");
-    const btnGroupFooter2 = document.getElementById("btnGroupFooter2");
 
-    [btnGroupTop, btnGroupHero, btnGroupQuiz, btnGroupFooter, btnGroupFooter2].forEach(btn=>{
+    [btnGroupTop, btnGroupHero, btnGroupQuiz, btnGroupFooter].forEach(btn=>{
       if(btn) btn.addEventListener("click", openGroup);
     });
 
@@ -1423,7 +1357,7 @@
 
       const html = `
         <div class="pill"><span class="dot"></span> Recomendação personalizada</div>
-        <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a5d00">${pack}</span></h3>
+        <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a1c06">${pack}</span></h3>
         <p class="q-hint">Com base nas suas respostas, esse pacote é o que mais aumenta suas chances de aparecer e converter em mensagens.</p>
 
         <div class="side-box" style="margin-top:14px;">
