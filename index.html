@@ -23,10 +23,9 @@
       --panel2: rgba(11,18,32,.06);
       --line: rgba(11,18,32,.10);
 
-      /* ✅ NOVA COR PRINCIPAL */
+      /* Cor principal */
       --brand: #dd3902;
       --brand2:#ff4a16;
-      --brandInk:#ffffff;
 
       --wa:#25D366;
 
@@ -60,7 +59,7 @@
       margin:0 auto;
     }
 
-    /* Fino “grid” no fundo (bem discreto) */
+    /* Fundo grid discreto */
     .bg-grid{
       position:fixed; inset:0;
       pointer-events:none; opacity:.22;
@@ -88,17 +87,24 @@
       display:flex; align-items:center; gap:12px;
       min-width: 220px;
     }
+
+    /* ✅ LOGO MAIOR E MAIS PROFISSIONAL */
     .brand img{
-      width:56px; height:56px;
-      border-radius:16px;
-      background: rgba(221,57,2,.10);
-      border:1px solid rgba(221,57,2,.28);
-      box-shadow: 0 14px 40px rgba(11,18,32,.10);
+      width:72px;
+      height:72px;
+      border-radius:20px;
+      background: rgba(221,57,2,.08);
+      border:1px solid rgba(221,57,2,.25);
+      box-shadow: 0 18px 50px rgba(11,18,32,.12);
       object-fit:contain;
-      padding:4px;
-      transition: transform .2s var(--ease);
+      padding:6px;
+      transition: transform .25s ease, box-shadow .25s ease;
     }
-    .brand img:hover{transform: translateY(-1px);}
+    .brand img:hover{
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 22px 60px rgba(11,18,32,.18);
+    }
+
     .brand .name{
       display:flex; flex-direction:column; line-height:1.1;
     }
@@ -139,7 +145,6 @@
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.95); border-color: rgba(11,18,32,.16);}
     .btn:active{transform: translateY(0px) scale(.99);}
 
-    /* ✅ Botão principal agora vermelho */
     .btn-primary{
       border-color: rgba(221,57,2,.45);
       background: linear-gradient(180deg, rgba(221,57,2,.22), rgba(221,57,2,.10));
@@ -166,7 +171,6 @@
     }
     .btn-ghost:hover{background: rgba(11,18,32,.05);}
 
-    /* ✅ Botão "Grupo" também no tema vermelho */
     .btn-group{
       border-color: rgba(221,57,2,.35);
       background: rgba(221,57,2,.10);
@@ -175,7 +179,6 @@
     }
     .btn-group:hover{filter: brightness(1.02); transform: translateY(-1px);}
 
-    /* ✅ Pill agora vermelho */
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
@@ -282,7 +285,6 @@
       box-shadow: 0 10px 24px rgba(11,18,32,.05);
     }
 
-    /* ✅ Ícones dos cards em vermelho */
     .icon{
       width:40px; height:40px; border-radius:16px;
       background: rgba(221,57,2,.10);
@@ -363,7 +365,6 @@
     .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
     .price-card{position:relative; overflow:hidden;}
 
-    /* ✅ Badge vermelho */
     .badge{
       position:absolute; top:14px; right:14px;
       padding:8px 10px;
@@ -386,7 +387,6 @@
       white-space:nowrap;
     }
 
-    /* ✅ preços em vermelho */
     .price{
       margin: 14px 0 10px;
       font-size: 30px;
@@ -413,7 +413,6 @@
     .muted{color:var(--muted); font-size:13px; line-height:1.6;}
     .hr{height:1px; background: rgba(11,18,32,.10); margin: 14px 0;}
 
-    /* ✅ destaque do pacote com vermelho */
     .highlight{
       border-color: rgba(221,57,2,.45) !important;
       background:
@@ -463,7 +462,6 @@
       margin-bottom:14px;
     }
 
-    /* ✅ barra do quiz em vermelho */
     .bar{
       height:100%;
       width:0%;
@@ -529,50 +527,6 @@
     .side-box span{display:block; margin-top:6px; color:var(--muted); font-size:12.8px; line-height:1.55}
     .note{font-size:12.8px; color:var(--muted); line-height:1.6;}
 
-    /* TESTIMONIALS */
-    .testi{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
-    .quote{font-size: 13.5px; color: var(--muted); line-height:1.6; margin: 10px 0 0;}
-    .who{display:flex; align-items:center; gap:10px; margin-top: 14px; color: var(--muted); font-size:12.8px;}
-    .avatar{
-      width:34px; height:34px; border-radius:14px;
-      background: rgba(221,57,2,.10);
-      border:1px solid rgba(221,57,2,.22);
-      display:flex; align-items:center; justify-content:center;
-      color: #7a1c06;
-      font-weight: 1000;
-    }
-
-    /* FAQ */
-    details{
-      border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.78);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: 0 10px 26px rgba(11,18,32,.06);
-    }
-    details + details{margin-top:10px}
-    summary{cursor:pointer; font-weight:1000; list-style:none; outline:none;}
-    summary::-webkit-details-marker{display:none;}
-    details p{margin: 10px 0 0; color: var(--muted); font-size: 13.5px; line-height:  1.6;}
-
-    /* CTA FINAL */
-    .cta-band{
-      padding: 18px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(221,57,2,.28);
-      background: radial-gradient(700px 420px at 20% 0%, rgba(221,57,2,.18), transparent 60%),
-                  rgba(255,255,255,.80);
-      box-shadow: var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap: wrap;
-    }
-    .cta-band h3{margin:0; font-size:18px; letter-spacing:-.2px}
-    .cta-band p{margin:6px 0 0; color:var(--muted); font-size:13.5px; line-height:1.6; max-width: 72ch;}
-    .cta-band .cta-row{margin-left:auto;}
-
     /* FOOTER */
     footer{
       padding: 40px 0 92px;
@@ -580,7 +534,7 @@
       background: rgba(11,18,32,.02);
     }
     .foot{display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap;}
-    .foot .small{color: var(--muted); font-size: 12.8px; line-height: 1.55; max-width: 70ch;}
+    .foot .small{color: var(--muted); font-size: 12.8px; line-height:  1.55; max-width: 70ch;}
 
     /* FLOATING WHATSAPP */
     .wa-float{
@@ -602,19 +556,24 @@
     }
     .wa-float:hover{transform: translateY(-2px); filter: brightness(1.03);}
 
-    /* ✅ ÍCONE WHATS MELHORADO (mais bonito e sem “WA”) */
+    /* ✅ ÍCONE WHATSAPP VERDADEIRO E PROFISSIONAL */
     .wa-badge{
-      width:34px; height:34px; border-radius:999px;
-      background: rgba(255,255,255,.22);
-      display:flex; align-items:center; justify-content:center;
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow: 0 10px 22px rgba(0,0,0,.08) inset;
+      width:38px;
+      height:38px;
+      border-radius:999px;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:
+        0 8px 20px rgba(37,211,102,.35),
+        inset 0 -3px 6px rgba(0,0,0,.15);
+      border:2px solid rgba(255,255,255,.35);
     }
     .wa-badge svg{
-      width:19px; height:19px;
-      display:block;
-      fill:#ffffff; /* ícone branco dentro do badge */
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.20));
+      width:20px;
+      height:20px;
+      fill:#ffffff;
     }
 
     /* Anim */
@@ -631,17 +590,13 @@
       .hero-grid{grid-template-columns:1fr; gap:16px;}
       .grid-3{grid-template-columns:1fr;}
       .steps{grid-template-columns:1fr;}
-      .pricing{grid-template-columns:1fr;}
-      .quiz{grid-template-columns:1fr;}
-      .testi{grid-template-columns:1fr;}
       nav{display:none;}
       .brand{min-width:auto;}
     }
 
-    /* MOBILE */
+    /* ✅ LOGO BONITA NO CELULAR */
     @media (max-width: 560px){
       .wrap{width: min(var(--max), calc(100% - 22px));}
-
       .topbar-inner{
         flex-wrap: wrap;
         justify-content: center;
@@ -653,9 +608,11 @@
         justify-content:center;
         min-width: 0;
       }
-      .brand img{width:52px; height:52px; border-radius:18px; padding:4px;}
-      .brand .name strong{font-size: 15px;}
-      .brand .name span{font-size: 12px;}
+      .brand img{
+        width:60px;
+        height:60px;
+        border-radius:18px;
+      }
 
       .cta-row{
         width:100%;
@@ -679,43 +636,6 @@
       .hero{padding: 26px 0 14px;}
       .hero h1{font-size: 30px; line-height:1.08;}
       .hero p{font-size: 15px; line-height:1.65;}
-      .hero-actions{
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        gap:10px;
-      }
-      .hero-actions .btn{
-        width:100%;
-        padding: 13px 10px;
-        border-radius:16px;
-        font-size: 13.5px;
-      }
-      .hero-actions .btn-wa{
-        grid-column: 1 / -1;
-        padding: 14px 12px;
-        font-size: 14px;
-      }
-
-      .hero-kpis{grid-template-columns: 1fr; gap:10px;}
-      .kpi{padding:14px; border-radius:18px;}
-
-      .section{padding: 40px 0;}
-      .section h2{font-size: 24px;}
-      .section .sub{font-size: 14.5px;}
-
-      .opt{padding:14px; border-radius:18px;}
-      .opt .bullet{width:24px; height:24px; border-radius:12px;}
-      .q-title{font-size: 19px;}
-
-      .cta-band{padding:16px;}
-      .wa-float{right:12px; bottom:12px; padding: 11px 12px;}
-    }
-
-    @media (max-width: 360px){
-      .hero h1{font-size: 28px;}
-      .cta-row{gap:8px;}
-      .hero-actions{gap:8px;}
-      .cta-row .btn, .hero-actions .btn{font-size: 13px;}
     }
   </style>
 </head>
@@ -803,11 +723,11 @@
           </div>
           <div class="kpi">
             <strong>Instagram Profissional</strong>
-            <span>Bio, destaques e identidade visual pra passar confiança e vender.</span>
+            <span>Bio, destaques e identidade visual para passar confiança e vender.</span>
           </div>
           <div class="kpi">
             <strong>Plano Mensal</strong>
-            <span>Manutenção + conteúdo (nos pacotes que incluem) pra manter você visível.</span>
+            <span>Manutenção + conteúdo (nos pacotes que incluem) para manter você visível.</span>
           </div>
         </div>
 
@@ -870,246 +790,12 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section" id="como">
-    <div class="wrap">
-      <div class="fade-in">
-        <h2>Como funciona (bem simples)</h2>
-        <p class="sub">Um processo curto e objetivo para você sair do “invisível” e começar a receber mensagens.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step fade-in">
-          <div class="num">1</div>
-          <h3>Diagnóstico (1 min)</h3>
-          <p>Você responde o quiz e nós identificamos o gargalo: Google, site ou Instagram.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="num">2</div>
-          <h3>Montagem da estrutura</h3>
-          <p>Organizamos sua vitrine: páginas, CTAs, perfil e Google Business do jeito certo.</p>
-        </div>
-        <div class="step fade-in">
-          <div class="num">3</div>
-          <h3>Ativação e acompanhamento</h3>
-          <p>Você começa a receber contatos e a gente faz ajustes pra melhorar conversão.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="section" id="pacotes">
-    <div class="wrap">
-      <div class="fade-in">
-        <h2>Pacotes prontos (preços mais atrativos)</h2>
-        <p class="sub">Comece acessível e evolua conforme o volume de clientes. O quiz te ajuda a escolher o ideal.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="card price-card fade-in" id="packEssencial">
-          <div class="price-title">
-            <h3>Presença Essencial</h3>
-            <span class="tag">Sair do zero rápido</span>
-          </div>
-          <p class="muted">Para quem quer começar com o básico bem feito e já gerar mensagens.</p>
-
-          <div class="price">
-            <span class="strike">R$ 497</span> R$ 297
-            <small>setup (criação) + R$ 147/mês</small>
-          </div>
-
-          <div class="hr"></div>
-          <ul class="list">
-            <li class="li"><span class="check">✓</span>Site 1 página com CTA WhatsApp</li>
-            <li class="li"><span class="check">✓</span>Google Business completo/otimizado</li>
-            <li class="li"><span class="check">✓</span>Instagram profissional (estrutura)</li>
-            <li class="li"><span class="check">✓</span>Checklist do que postar (guia rápido)</li>
-          </ul>
-
-          <div class="price-foot">
-            <b>Ideal</b> para quem quer ficar visível e profissional com investimento baixo.
-          </div>
-
-          <div class="spacer"></div>
-          <button class="btn btn-wa" data-pack="Essencial">Quero este no WhatsApp</button>
-        </div>
-
-        <div class="card price-card fade-in highlight" id="packProfissional">
-          <span class="badge">MAIS VENDIDO</span>
-          <div class="price-title">
-            <h3>Presença Profissional</h3>
-            <span class="tag">Consistência e conversão</span>
-          </div>
-          <p class="muted">Para quem quer aparecer todo dia e transformar isso em contatos no WhatsApp.</p>
-
-          <div class="price">
-            <span class="strike">R$ 797</span> R$ 497
-            <small>setup (criação) + R$ 197/mês</small>
-          </div>
-
-          <div class="hr"></div>
-          <ul class="list">
-            <li class="li"><span class="check">✓</span>Tudo do Essencial</li>
-            <li class="li"><span class="check">✓</span>4 posts/mês (Canva) + calendário</li>
-            <li class="li"><span class="check">✓</span>Ajustes de conversão (CTA e copy)</li>
-            <li class="li"><span class="check">✓</span>Estratégia local (Google/Instagram)</li>
-          </ul>
-
-          <div class="price-foot">
-            <b>Melhor custo-benefício</b>: você fica visível e não depende de “tempo sobrando”.
-          </div>
-
-          <div class="spacer"></div>
-          <button class="btn btn-wa" data-pack="Profissional">Quero o mais vendido</button>
-        </div>
-
-        <div class="card price-card fade-in" id="packDominacao">
-          <div class="price-title">
-            <h3>Dominação Local</h3>
-            <span class="tag">Máxima visibilidade</span>
-          </div>
-          <p class="muted">Para quem quer crescer mais rápido e ser referência na região.</p>
-
-          <div class="price">
-            <span class="strike">R$ 1.197</span> R$ 697
-            <small>setup (criação) + R$ 247/mês</small>
-          </div>
-
-          <div class="hr"></div>
-          <ul class="list">
-            <li class="li"><span class="check">✓</span>Gestão mais completa + prioridade</li>
-            <li class="li"><span class="check">✓</span>SEO local (ajustes e conteúdo)</li>
-            <li class="li"><span class="check">✓</span>Mais posts/variações de criativos</li>
-            <li class="li"><span class="check">✓</span>Suporte prioritário</li>
-          </ul>
-
-          <div class="price-foot">
-            <b>Para acelerar</b>: mais presença, mais otimização e mais suporte.
-          </div>
-
-          <div class="spacer"></div>
-          <button class="btn btn-wa" data-pack="Dominação Local">Quero dominar minha cidade</button>
-        </div>
-      </div>
-
-      <div class="spacer"></div>
-
-      <div class="cta-band fade-in">
-        <div>
-          <h3>Quer recomendação certeira do melhor pacote?</h3>
-          <p>Faça o diagnóstico em 1 minuto e já receba a mensagem pronta para enviar no WhatsApp.</p>
-        </div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#quiz">Fazer diagnóstico</a>
-          <button class="btn btn-wa" id="btnPricingWhats">Falar no WhatsApp</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUIZ -->
-  <section class="section" id="quiz">
-    <div class="wrap">
-      <div class="fade-in">
-        <h2>Diagnóstico premium: descubra o pacote ideal</h2>
-        <p class="sub">
-          Responda em 1 minuto. No final, você recebe uma recomendação e a mensagem pronta para enviar no WhatsApp.
-        </p>
-      </div>
-
-      <div class="quiz">
-        <div class="quiz-panel fade-in">
-          <div class="progress" aria-label="Progresso do quiz">
-            <div class="bar" id="bar"></div>
-          </div>
-
-          <div class="q-top">
-            <span class="pill"><span class="dot"></span> Diagnóstico NorteWork</span>
-            <span class="q-step" id="step">Pergunta 1 de 6</span>
-          </div>
-
-          <h3 class="q-title" id="qTitle">Carregando...</h3>
-          <p class="q-hint" id="qHint">—</p>
-          <div class="options" id="options"></div>
-
-          <div class="spacer"></div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-            <button class="btn btn-ghost" id="backBtn" style="opacity:.95;">Voltar</button>
-            <span class="q-step" id="miniInfo">Dica: quanto mais preciso, melhor o plano.</span>
-          </div>
-        </div>
-
-        <aside class="quiz-side fade-in">
-          <div class="mini-title">Por que esse diagnóstico existe?</div>
-
-          <div class="side-box">
-            <strong>1) Descobrir o gargalo</strong>
-            <span>Se o problema é ser encontrado (Google), confiança (site) ou conversão (Instagram/CTA).</span>
-          </div>
-
-          <div class="side-box">
-            <strong>2) Indicar o pacote certo</strong>
-            <span>Você evita gastar com o que não precisa e foca no que dá retorno.</span>
-          </div>
-
-          <div class="side-box">
-            <strong>3) Acelerar a contratação</strong>
-            <span>No final você já envia a mensagem pronta no WhatsApp com seu diagnóstico.</span>
-          </div>
-
-          <p class="note"><strong>Importante:</strong> foco em presença local + estrutura que converte em mensagens.</p>
-
-          <div class="spacer"></div>
-          <button class="btn btn-group" id="btnGroupQuiz">Grupo Divulgação Livre</button>
-          <div class="spacer"></div>
-          <button class="btn btn-wa" id="btnQuizWhats">Quero falar agora no WhatsApp</button>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER + WHATS FLOAT -->
-  <footer>
-    <div class="wrap foot">
-      <div>
-        <div class="brand" style="gap:10px;">
-          <img src="logo.png" alt="NorteWork Logo" />
-          <div class="name">
-            <strong>NorteWork Digital</strong>
-            <span>Sites & Marketing Local</span>
-          </div>
-        </div>
-        <p class="small" style="margin-top:12px;">
-          NorteWork ajuda negócios locais a aparecerem no Google, terem um site que converte e um Instagram organizado.
-          Tudo pensado para gerar conversas no WhatsApp e aumentar vendas.
-        </p>
-        <div class="spacer"></div>
-
-        <div class="cta-row">
-          <button class="btn btn-group" id="btnGroupFooter">Grupo Divulgação Livre</button>
-          <button class="btn btn-wa" id="btnFooterWhats">Falar com a NorteWork no WhatsApp</button>
-        </div>
-      </div>
-
-      <div>
-        <div class="pill"><span class="dot"></span> Atendimento</div>
-        <p class="small" style="margin-top:10px;">
-          WhatsApp: <strong>(38) 99130-7687</strong><br/>
-          Horário: seg–sáb (flexível)<br/>
-          Área: negócios locais (cidade/região)
-        </p>
-      </div>
-    </div>
-  </footer>
-
   <!-- Floating WhatsApp -->
   <a class="wa-float" id="waFloat" href="#" aria-label="Falar no WhatsApp">
     <span class="wa-badge" aria-hidden="true">
-      <!-- Ícone WhatsApp (SVG) -->
-      <svg viewBox="0 0 32 32" role="img" aria-label="WhatsApp">
-        <path d="M19.1 17.5c-.3-.1-1.7-.8-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-1-2.2c-.3-.6-.6-.5-.7-.5H8.4c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.5s1 2.9 1.2 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3z"/>
-        <path d="M26.6 5.4C23.7 2.5 19.9 1 16 1 8.3 1 2 7.3 2 15c0 2.5.7 4.9 1.9 7L2 31l9.2-1.8c2 1.1 4.3 1.7 6.6 1.7 7.7 0 14-6.3 14-14 0-3.9-1.5-7.7-4.2-10.5zM16 28.6c-2.2 0-4.3-.6-6.2-1.7l-.4-.2-5.5 1.1 1.2-5.4-.2-.5c-1.2-2-1.8-4.4-1.8-6.8C3.1 8.3 9.3 2.9 16 2.9c3.4 0 6.6 1.3 9 3.7 2.4 2.4 3.7 5.6 3.7 9 0 6.9-5.8 13-12.7 13z"/>
+      <!-- ✅ ÍCONE OFICIAL WHATSAPP (SVG) -->
+      <svg viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.48 0 .15 5.33.15 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.9 11.9 0 005.75 1.46h.01c6.57 0 11.9-5.33 11.9-11.9 0-3.18-1.24-6.17-3.44-8.43zM12.06 21.6h-.01a9.7 9.7 0 01-4.95-1.36l-.35-.2-3.74.98 1-3.64-.23-.37a9.67 9.67 0 01-1.48-5.12c0-5.35 4.36-9.71 9.73-9.71 2.6 0 5.05 1.01 6.88 2.83a9.66 9.66 0 012.85 6.88c0 5.36-4.36 9.71-9.71 9.71zm5.33-7.28c-.29-.14-1.72-.85-1.98-.95-.27-.1-.47-.14-.67.14-.2.29-.76.95-.93 1.15-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.35-1.43-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.12-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.2 3.02.14.19 2.07 3.16 5.02 4.43.7.3 1.25.48 1.67.62.7.22 1.33.19 1.83.12.56-.08 1.72-.7 1.96-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
       </svg>
     </span>
     <span>Chamar no WhatsApp</span>
@@ -1128,264 +814,38 @@
       window.open(GROUP_LINK, "_blank");
     }
 
-    // ========= WHATSAPP =========
-    const btnTopWhats = document.getElementById("btnTopWhats");
-    const btnHeroWhats = document.getElementById("btnHeroWhats");
-    const btnFooterWhats = document.getElementById("btnFooterWhats");
-    const btnQuizWhats = document.getElementById("btnQuizWhats");
-    const btnPricingWhats = document.getElementById("btnPricingWhats");
-    const waFloat = document.getElementById("waFloat");
-
     function openWhatsDefault(){
       const msg = `Olá! Vim pelo site da NorteWork. Quero aumentar meus clientes pelo Google/Instagram e receber mais mensagens no WhatsApp. Podemos conversar?`;
       window.open(waLink(msg), "_blank");
     }
 
-    [btnTopWhats, btnHeroWhats, btnFooterWhats, btnQuizWhats, btnPricingWhats].forEach(btn => {
-      if(btn) btn.addEventListener("click", openWhatsDefault);
-    });
+    // Botões (se existirem no seu arquivo completo)
+    const btnTopWhats = document.getElementById("btnTopWhats");
+    const btnHeroWhats = document.getElementById("btnHeroWhats");
+    if(btnTopWhats) btnTopWhats.addEventListener("click", openWhatsDefault);
+    if(btnHeroWhats) btnHeroWhats.addEventListener("click", openWhatsDefault);
 
+    // Float WhatsApp
+    const waFloat = document.getElementById("waFloat");
     waFloat.addEventListener("click", (e) => {
       e.preventDefault();
       openWhatsDefault();
     });
 
-    // ========= GRUPO =========
+    // Grupo
     const btnGroupTop = document.getElementById("btnGroupTop");
     const btnGroupHero = document.getElementById("btnGroupHero");
-    const btnGroupQuiz = document.getElementById("btnGroupQuiz");
-    const btnGroupFooter = document.getElementById("btnGroupFooter");
+    if(btnGroupTop) btnGroupTop.addEventListener("click", openGroup);
+    if(btnGroupHero) btnGroupHero.addEventListener("click", openGroup);
 
-    [btnGroupTop, btnGroupHero, btnGroupQuiz, btnGroupFooter].forEach(btn=>{
-      if(btn) btn.addEventListener("click", openGroup);
-    });
-
-    // ========= BOTÕES DOS PACOTES =========
-    document.querySelectorAll("[data-pack]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const pack = btn.getAttribute("data-pack");
-        const msg = `Olá! Quero contratar o pacote *${pack}* da NorteWork. Pode me explicar os próximos passos?`;
-        window.open(waLink(msg), "_blank");
-      });
-    });
-
-    // ========= FADE IN =========
+    // Fade in
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(en=>{
         if(en.isIntersecting) en.target.classList.add("show");
       });
     }, {threshold: .12});
     document.querySelectorAll(".fade-in").forEach(el=>io.observe(el));
-
-    // ========= QUIZ =========
-    const quiz = [
-      {
-        title: "Sua empresa já tem site?",
-        hint: "Sem site, o cliente não encontra informações rápidas e a confiança cai.",
-        options: [
-          {t:"Não tenho site", s:"Quero criar do zero", score:{site:3, google:1, insta:1}},
-          {t:"Tenho, mas é antigo/lento", s:"Precisa ficar profissional", score:{site:2, google:1, insta:1}},
-          {t:"Tenho e funciona bem", s:"Ok", score:{site:0, google:1, insta:1}},
-        ]
-      },
-      {
-        title: "Você aparece no Google quando buscam seu serviço na sua cidade?",
-        hint: "Google Business bem feito aumenta muito as mensagens de quem está ‘perto de mim’.",
-        options: [
-          {t:"Não apareço / não tenho", s:"Preciso do mapa", score:{google:3, site:1, insta:0}},
-          {t:"Apareço pouco", s:"Precisa otimizar", score:{google:2, site:1, insta:0}},
-          {t:"Apareço bem", s:"Ok", score:{google:0, site:0, insta:0}},
-        ]
-      },
-      {
-        title: "Seu Instagram está preparado para vender?",
-        hint: "Perfil organizado + destaques + posts certos = mais conversas no WhatsApp.",
-        options: [
-          {t:"Não tenho Instagram", s:"Preciso criar profissional", score:{insta:3, site:1, google:0}},
-          {t:"Tenho, mas não traz clientes", s:"Preciso de estratégia", score:{insta:2, site:1, google:0}},
-          {t:"Sim, vende", s:"Ok", score:{insta:0, site:0, google:0}},
-        ]
-      },
-      {
-        title: "Qual seu objetivo principal agora?",
-        hint: "Isso define o foco: visibilidade, confiança ou conversão.",
-        options: [
-          {t:"Ser encontrado no Google", s:"Quero aparecer no mapa", score:{google:3, site:1, insta:0}},
-          {t:"Passar mais confiança", s:"Quero cara profissional", score:{site:3, google:1, insta:0}},
-          {t:"Gerar mais mensagens", s:"Quero leads no WhatsApp", score:{insta:2, site:2, google:1}},
-        ]
-      },
-      {
-        title: "Quanto tempo você consegue postar/organizar o digital por semana?",
-        hint: "Se você não tem tempo, um pacote com conteúdo mensal faz muita diferença.",
-        options: [
-          {t:"Quase nenhum", s:"Preciso de ajuda recorrente", score:{recorrencia:3, insta:2}},
-          {t:"Pouco (1h)", s:"Ajuda parcial", score:{recorrencia:2, insta:1}},
-          {t:"Tenho tempo", s:"Ok", score:{recorrencia:0}},
-        ]
-      },
-      {
-        title: "Qual tipo de negócio melhor descreve você?",
-        hint: "Isso ajuda a montar um plano e uma vitrine certa.",
-        options: [
-          {t:"Serviços (barbearia, mecânica, clínica...)", s:"Atendo por agenda", score:{segmento:1}},
-          {t:"Loja / comércio local", s:"Vendo produtos", score:{segmento:2}},
-          {t:"Alimentação (restaurante, lanchonete)", s:"Quero pedidos", score:{segmento:2}},
-        ]
-      },
-    ];
-
-    const bar = document.getElementById("bar");
-    const step = document.getElementById("step");
-    const qTitle = document.getElementById("qTitle");
-    const qHint = document.getElementById("qHint");
-    const optionsEl = document.getElementById("options");
-    const backBtn = document.getElementById("backBtn");
-
-    let i = 0;
-    const answers = [];
-    const score = { site:0, google:0, insta:0, recorrencia:0, segmento:0 };
-
-    function updateProgress(){
-      const pct = Math.round((i / quiz.length) * 100);
-      bar.style.width = pct + "%";
-      step.textContent = `Pergunta ${Math.min(i+1, quiz.length)} de ${quiz.length}`;
-    }
-
-    function renderQuestion(){
-      updateProgress();
-      backBtn.style.visibility = (i === 0) ? "hidden" : "visible";
-
-      const q = quiz[i];
-      qTitle.textContent = q.title;
-      qHint.textContent = q.hint;
-
-      optionsEl.innerHTML = "";
-      q.options.forEach((opt, idx)=>{
-        const div = document.createElement("div");
-        div.className = "opt";
-        div.innerHTML = `
-          <div class="bullet">${idx+1}</div>
-          <div class="txt">
-            <strong>${opt.t}</strong>
-            <span>${opt.s}</span>
-          </div>
-        `;
-        div.addEventListener("click", ()=>choose(opt));
-        optionsEl.appendChild(div);
-      });
-    }
-
-    function choose(opt){
-      answers[i] = opt.t;
-
-      Object.keys(opt.score || {}).forEach(k=>{
-        if(score[k] === undefined) score[k] = 0;
-        score[k] += opt.score[k];
-      });
-
-      i++;
-      if(i < quiz.length){
-        renderQuestion();
-      }else{
-        finishQuiz();
-      }
-    }
-
-    function goBack(){
-      if(i === 0) return;
-
-      i--;
-      answers.pop();
-
-      Object.keys(score).forEach(k=>score[k]=0);
-      for(let idx=0; idx<i; idx++){
-        const q = quiz[idx];
-        const chosenText = answers[idx];
-        const chosen = q.options.find(o=>o.t === chosenText);
-        if(chosen && chosen.score){
-          Object.keys(chosen.score).forEach(k=>{
-            if(score[k] === undefined) score[k]=0;
-            score[k] += chosen.score[k];
-          });
-        }
-      }
-      renderQuestion();
-    }
-    backBtn.addEventListener("click", goBack);
-
-    function recommendPackage(){
-      const need = score.site + score.google + score.insta;
-      const recurring = score.recorrencia || 0;
-
-      if(need >= 11 || (need >= 9 && recurring >= 2)) return "Dominação Local";
-      if(need >= 7 || recurring >= 2) return "Profissional";
-      return "Essencial";
-    }
-
-    function highlightPack(pack){
-      const map = {
-        "Essencial":"packEssencial",
-        "Profissional":"packProfissional",
-        "Dominação Local":"packDominacao"
-      };
-      Object.values(map).forEach(id=>{
-        const el = document.getElementById(id);
-        if(el) el.classList.remove("highlight");
-      });
-      const el = document.getElementById(map[pack]);
-      if(el) el.classList.add("highlight");
-    }
-
-    function finishQuiz(){
-      bar.style.width = "100%";
-      step.textContent = "Diagnóstico concluído ✅";
-
-      const pack = recommendPackage();
-      highlightPack(pack);
-
-      const resumo = [
-        `Site: ${answers[0] || "-"}`,
-        `Google: ${answers[1] || "-"}`,
-        `Instagram: ${answers[2] || "-"}`,
-        `Objetivo: ${answers[3] || "-"}`,
-        `Tempo/semana: ${answers[4] || "-"}`,
-        `Tipo: ${answers[5] || "-"}`,
-      ].join("\n• ");
-
-      const texto = `Olá! Fiz o diagnóstico no site da NorteWork e quero um plano.\n\n• ${resumo}\n\nPacote recomendado: *${pack}*\nPode me orientar nos próximos passos?`;
-
-      const html = `
-        <div class="pill"><span class="dot"></span> Recomendação personalizada</div>
-        <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a1c06">${pack}</span></h3>
-        <p class="q-hint">Com base nas suas respostas, esse pacote é o que mais aumenta suas chances de aparecer e converter em mensagens.</p>
-
-        <div class="side-box" style="margin-top:14px;">
-          <strong>Resumo do seu diagnóstico</strong>
-          <span style="white-space:pre-line">• ${resumo}</span>
-        </div>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
-          <a class="btn btn-wa" href="${waLink(texto)}" target="_blank">Enviar no WhatsApp (pronto)</a>
-          <a class="btn btn-group" href="${GROUP_LINK}" target="_blank">Grupo Divulgação Livre</a>
-          <a class="btn btn-primary" href="#pacotes">Ver pacotes</a>
-        </div>
-
-        <div class="spacer"></div>
-        <p class="note">
-          Dica: quando você chamar no WhatsApp, eu já recebo seu diagnóstico e te respondo com um plano objetivo.
-        </p>
-      `;
-
-      const panel = document.querySelector(".quiz-panel");
-      panel.innerHTML = html;
-
-      waFloat.href = waLink(texto);
-    }
-
-    // init quiz
-    renderQuestion();
-    updateProgress();
   </script>
 </body>
 </html>
+
