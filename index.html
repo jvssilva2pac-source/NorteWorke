@@ -6,6 +6,10 @@
   <title>NorteWork Digital — Sites & Marketing Local</title>
   <meta name="description" content="A NorteWork coloca sua empresa no mapa digital: Site, Google Business e Instagram para atrair clientes e aumentar vendas." />
 
+  <!-- FAVICON (ícone da aba) -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
   <style>
     :root{
       --bg:#070A0F;
@@ -148,7 +152,6 @@
     .btn-wa:hover{filter: brightness(1.02); transform: translateY(-1px);}
     .btn-wa:active{transform: translateY(0px) scale(.99);}
 
-    /* Botão do grupo (amarelo premium) */
     .btn-group{
       border:1px solid rgba(255,208,0,.28);
       background: linear-gradient(180deg, rgba(255,208,0,.26), rgba(255,208,0,.10));
@@ -329,10 +332,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap:16px;
     }
-    .price-card{
-      position:relative;
-      overflow:hidden;
-    }
+    .price-card{position:relative; overflow:hidden;}
     .badge{
       position:absolute; top:14px; right:14px;
       padding:8px 10px;
@@ -348,11 +348,7 @@
       gap:10px;
       margin-bottom: 8px;
     }
-    .price-title h3{
-      margin:0;
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
+    .price-title h3{margin:0; font-size:18px; letter-spacing:-.2px;}
     .tag{
       font-size:12px; color:var(--muted);
       padding:7px 10px;
@@ -376,16 +372,8 @@
       margin-top: 6px;
       letter-spacing:0;
     }
-    .muted{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-    }
-    .hr{
-      height:1px;
-      background: rgba(255,255,255,.12);
-      margin: 14px 0;
-    }
+    .muted{color:var(--muted); font-size:13px; line-height:1.55;}
+    .hr{height:1px; background: rgba(255,255,255,.12); margin: 14px 0;}
 
     .highlight{
       border-color: rgba(255,208,0,.30) !important;
@@ -436,30 +424,11 @@
       transition: width .35s var(--ease);
       box-shadow: 0 14px 40px rgba(255,208,0,.12);
     }
-    .q-top{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-    }
-    .q-step{
-      font-size:12px;
-      color:var(--muted);
-    }
-    .q-title{
-      font-size: 20px;
-      margin: 10px 0 4px;
-      letter-spacing:-.3px;
-      line-height:1.25;
-    }
-    .q-hint{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-    }
-    .options{
-      display:grid;
-      gap:10px;
-    }
+    .q-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+    .q-step{font-size:12px; color:var(--muted);}
+    .q-title{font-size: 20px; margin: 10px 0 4px; letter-spacing:-.3px; line-height:1.25;}
+    .q-hint{margin:0 0 14px; color:var(--muted); font-size:13px; line-height:1.55;}
+    .options{display:grid; gap:10px;}
     .opt{
       padding: 12px 12px;
       border-radius: 16px;
@@ -511,29 +480,15 @@
     }
     .side-box strong{display:block; font-size:14px}
     .side-box span{display:block; margin-top:6px; color:var(--muted); font-size:12.8px; line-height:1.5}
-    .note{
-      font-size:12.8px;
-      color:var(--muted);
-      line-height:1.55;
-    }
+    .note{font-size:12.8px; color:var(--muted); line-height:1.55;}
 
     .testi{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:16px;
     }
-    .quote{
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height:1.55;
-      margin: 10px 0 0;
-    }
-    .who{
-      display:flex; align-items:center; gap:10px;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size:12.8px;
-    }
+    .quote{font-size: 13.5px; color: var(--muted); line-height:1.55; margin: 10px 0 0;}
+    .who{display:flex; align-items:center; gap:10px; margin-top: 14px; color: var(--muted); font-size:12.8px;}
     .avatar{
       width:34px; height:34px; border-radius:14px;
       background: rgba(255,208,0,.14);
@@ -558,12 +513,7 @@
       outline:none;
     }
     summary::-webkit-details-marker{display:none;}
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height:  1.55;
-    }
+    details p{margin: 10px 0 0; color: var(--muted); font-size: 13.5px; line-height:  1.55;}
 
     footer{
       padding: 40px 0 90px;
@@ -611,12 +561,10 @@
       transform: translateY(10px);
       transition: opacity .7s var(--ease), transform .7s var(--ease);
     }
-    .fade-in.show{
-      opacity:1;
-      transform: translateY(0);
-    }
+    .fade-in.show{opacity:1; transform: translateY(0);}
     .spacer{height:14px}
 
+    /* Responsivo geral */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr; gap:16px;}
       .grid-3{grid-template-columns:1fr;}
@@ -625,6 +573,45 @@
       .testi{grid-template-columns:1fr;}
       nav{display:none;}
       .brand{min-width:auto;}
+    }
+
+    /* ===== MELHORIA DO TOPO NO CELULAR (alinhamento) ===== */
+    @media (max-width: 560px){
+      .wrap{width: min(var(--max), calc(100% - 24px));}
+      .topbar-inner{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap:10px;
+        padding:12px 0;
+      }
+      .brand{
+        width:100%;
+        justify-content:center;
+        min-width: 0;
+      }
+      .brand img{
+        width:40px; height:40px;
+        border-radius:14px;
+      }
+      .brand .name strong{font-size: 14px;}
+      .brand .name span{font-size: 12px;}
+      .cta-row{
+        width:100%;
+        justify-content:center;
+      }
+      .cta-row .btn{
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 12px 10px;
+      }
+    }
+
+    /* Ajuste extra para telas bem pequenas */
+    @media (max-width: 380px){
+      .cta-row{gap:8px;}
+      .cta-row .btn{font-size: 13px; padding: 11px 9px;}
+      .brand .name strong{font-size: 13px;}
+      .brand .name span{font-size: 11px;}
     }
   </style>
 </head>
@@ -636,7 +623,6 @@
   <div class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand">
-        <!-- LOGO COMO logo.png -->
         <img src="logo.png" alt="NorteWork Logo" />
         <div class="name">
           <strong>NorteWork Digital</strong>
@@ -888,9 +874,7 @@
             <span>No final, você já envia a mensagem com tudo pronto no WhatsApp.</span>
           </div>
 
-          <p class="note">
-            <strong>Importante:</strong> o foco é presença local forte + estrutura que converte.
-          </p>
+          <p class="note"><strong>Importante:</strong> o foco é presença local forte + estrutura que converte.</p>
 
           <div class="spacer"></div>
           <button class="btn btn-group" id="btnGroupQuiz">Grupo Divulgação Livre</button>
@@ -906,9 +890,7 @@
     <div class="wrap">
       <div class="fade-in">
         <h2>Prova social (modelo)</h2>
-        <p class="sub">
-          Aqui você pode trocar pelos depoimentos reais dos seus clientes quando começar.
-        </p>
+        <p class="sub">Aqui você pode trocar pelos depoimentos reais dos seus clientes quando começar.</p>
       </div>
 
       <div class="testi">
@@ -1007,9 +989,8 @@
     // ========= CONFIG =========
     const WHATS_NUMBER = "5538991307687";
 
-    // Troque a URL abaixo pela URL real do seu grupo (WhatsApp/Telegram/etc)
-    // Exemplo WhatsApp: https://chat.whatsapp.com/SEU-CODIGO-DO-GRUPO
-    const GROUP_LINK = "https://example.com"; // <- COLOQUE AQUI O LINK DO SEU GRUPO
+    // LINK REAL DO GRUPO (conforme você pediu)
+    const GROUP_LINK = "https://chat.whatsapp.com/BVBuU4k9a4j54fiHSgCstQ?mode=gi_t";
 
     function waLink(message){
       const text = encodeURIComponent(message);
@@ -1277,6 +1258,25 @@
       waFloat.href = waLink(texto);
     }
 
+    // ========= GRUPO =========
+    const btnGroupTop = document.getElementById("btnGroupTop");
+    const btnGroupHero = document.getElementById("btnGroupHero");
+    const btnGroupQuiz = document.getElementById("btnGroupQuiz");
+    const btnGroupFooter = document.getElementById("btnGroupFooter");
+
+    [btnGroupTop, btnGroupHero, btnGroupQuiz, btnGroupFooter].forEach(btn=>{
+      btn.addEventListener("click", openGroup);
+    });
+
+    // ========= FADE IN =========
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting) en.target.classList.add("show");
+      });
+    }, {threshold: .12});
+    document.querySelectorAll(".fade-in").forEach(el=>io.observe(el));
+
+    // init quiz
     renderQuestion();
     updateProgress();
   </script>
