@@ -82,14 +82,31 @@
       display:flex; align-items:center; gap:12px;
       min-width: 220px;
     }
+
+    /* ===== LOGO MELHORADA (mais visível e "perfeita" no layout) ===== */
     .brand img{
-      width:44px; height:44px; border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      width:56px; height:56px;              /* maior no desktop */
+      border-radius:16px;
+      background:rgba(255,255,255,.07);     /* um pouco mais “vivo” */
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:
+        0 14px 36px rgba(0,0,0,.35),
+        0 0 0 7px rgba(255,208,0,.10);      /* aro suave pra destacar */
       object-fit:contain;
-      padding:6px;
+      padding:4px;                           /* menos padding = logo maior */
+      filter: drop-shadow(0 10px 22px rgba(255,208,0,.08));
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
     }
+    .brand img:hover{
+      transform: translateY(-1px);
+      background:rgba(255,255,255,.09);
+      border-color: rgba(255,208,0,.22);
+      box-shadow:
+        0 16px 42px rgba(0,0,0,.38),
+        0 0 0 8px rgba(255,208,0,.12);
+    }
+    /* =============================================================== */
+
     .brand .name{
       display:flex; flex-direction:column; line-height:1.1;
     }
@@ -507,7 +524,14 @@
         justify-content:center;
         min-width: 0;
       }
-      .brand img{width:44px; height:44px; border-radius:16px;}
+
+      /* Logo maior no mobile também (mais visível) */
+      .brand img{
+        width:52px; height:52px;
+        border-radius:18px;
+        padding:4px;
+      }
+
       .brand .name{align-items:flex-start}
       .brand .name strong{font-size: 15px;}
       .brand .name span{font-size: 12px;}
