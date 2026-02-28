@@ -6,35 +6,35 @@
   <title>NorteWork Digital — Sites & Marketing Local</title>
   <meta name="description" content="A NorteWork coloca sua empresa no mapa: Site, Google Business e Instagram para atrair clientes e aumentar vendas pelo WhatsApp." />
 
-  <!-- ÍCONE DA ABA (favicon) usando logo.png -->
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
 
   <style>
     :root{
-      /* Paleta profissional (branco + dourado da logo + preto suave) */
-      --bg: #ffffff;
-      --bg2: #fbfbfe;
-      --ink: #0B1220;
-      --muted: rgba(11,18,32,.70);
-      --muted2: rgba(11,18,32,.55);
+      /* Base */
+      --bg:#ffffff;
+      --bg2:#fbfbfe;
+      --ink:#0B1220;
+      --muted:rgba(11,18,32,.70);
+      --muted2:rgba(11,18,32,.55);
+      --panel:rgba(11,18,32,.04);
+      --panel2:rgba(11,18,32,.06);
+      --line:rgba(11,18,32,.10);
 
-      --panel: rgba(11,18,32,.04);
-      --panel2: rgba(11,18,32,.06);
-      --line: rgba(11,18,32,.10);
+      /* ✅ Brand (amarelo -> vermelho) */
+      --brand:#dd3902;
+      --brand2:#ff4a16;
+      --brandInk:#3a0d02;
 
-      --brand: #FFD000;   /* cor da logo */
-      --brand2:#FFB000;
-      --brandInk:#241B00;
-
+      /* WhatsApp */
       --wa:#25D366;
 
       --shadow: 0 18px 60px rgba(11,18,32,.10);
       --shadow2: 0 10px 34px rgba(11,18,32,.08);
 
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1100px;
+      --radius:18px;
+      --radius2:26px;
+      --max:1100px;
       --ease: cubic-bezier(.2,.8,.2,1);
     }
 
@@ -45,12 +45,11 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
       background:
-        radial-gradient(900px 520px at 15% 10%, rgba(255,208,0,.14), transparent 55%),
+        radial-gradient(900px 520px at 15% 10%, rgba(221,57,2,.14), transparent 55%),
         radial-gradient(900px 520px at 85% 18%, rgba(0,140,255,.08), transparent 55%),
         linear-gradient(180deg, var(--bg2) 0%, var(--bg) 50%, var(--bg2) 100%);
       overflow-x:hidden;
     }
-
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
 
@@ -59,10 +58,10 @@
       margin:0 auto;
     }
 
-    /* Fino “grid” no fundo (bem discreto) */
+    /* Grid fundo leve */
     .bg-grid{
       position:fixed; inset:0;
-      pointer-events:none; opacity:.22;
+      pointer-events:none; opacity:.20;
       background-image:
         linear-gradient(rgba(11,18,32,.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(11,18,32,.06) 1px, transparent 1px);
@@ -74,7 +73,7 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.82);
       border-bottom:1px solid var(--line);
     }
     .topbar-inner{
@@ -85,30 +84,22 @@
 
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 220px;
+      min-width: 240px;
     }
-
-    /* ✅ LOGO PERFEITA (MAIOR, MAIS VISÍVEL, PREMIUM) */
+    /* ✅ Logo maior e mais visível */
     .brand img{
-      width:72px;
-      height:72px;
+      width:76px; height:76px;
       border-radius:20px;
-      background: rgba(255,208,0,.16);
-      border:1px solid rgba(255,176,0,.40);
-      box-shadow: 0 18px 50px rgba(11,18,32,.12);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.28);
+      box-shadow: 0 14px 40px rgba(11,18,32,.10);
       object-fit:contain;
       padding:6px;
-      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+      transition: transform .2s var(--ease);
     }
-    .brand img:hover{
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 22px 60px rgba(11,18,32,.16);
-    }
-
-    .brand .name{
-      display:flex; flex-direction:column; line-height:1.1;
-    }
-    .brand .name strong{letter-spacing:.2px; font-size: 14px;}
+    .brand img:hover{transform: translateY(-1px);}
+    .brand .name{display:flex; flex-direction:column; line-height:1.1;}
+    .brand .name strong{letter-spacing:.2px; font-size: 14.5px;}
     .brand .name span{font-size:12px; color:var(--muted);}
 
     nav{display:flex; gap:10px; align-items:center;}
@@ -132,7 +123,7 @@
       padding:12px 14px;
       border-radius: 14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.86);
       color:var(--ink);
       font-weight:900;
       cursor:pointer;
@@ -142,18 +133,14 @@
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.95); border-color: rgba(11,18,32,.16);}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.98); border-color: rgba(11,18,32,.16);}
     .btn:active{transform: translateY(0px) scale(.99);}
 
     .btn-primary{
-      border-color: rgba(255,176,0,.55);
-      background: linear-gradient(180deg, rgba(255,208,0,.40), rgba(255,208,0,.18));
+      border-color: rgba(221,57,2,.45);
+      background: linear-gradient(180deg, rgba(221,57,2,.28), rgba(221,57,2,.12));
       color: var(--brandInk);
-      box-shadow: 0 14px 34px rgba(255,176,0,.18);
-    }
-    .btn-primary:hover{
-      border-color: rgba(255,176,0,.75);
-      filter: brightness(1.02);
+      box-shadow: 0 14px 34px rgba(221,57,2,.16);
     }
 
     .btn-wa{
@@ -162,37 +149,32 @@
       color:#07120b;
       box-shadow: 0 18px 45px rgba(37,211,102,.18);
     }
-    .btn-wa:hover{filter: brightness(1.03); transform: translateY(-1px);}
-
     .btn-ghost{
       background: rgba(11,18,32,.03);
       border-color: rgba(11,18,32,.10);
       color: var(--ink);
     }
-    .btn-ghost:hover{background: rgba(11,18,32,.05);}
-
     .btn-group{
-      border-color: rgba(255,176,0,.45);
-      background: rgba(255,208,0,.18);
+      border-color: rgba(221,57,2,.35);
+      background: rgba(221,57,2,.10);
       color: var(--brandInk);
-      box-shadow: 0 14px 34px rgba(255,176,0,.14);
+      box-shadow: 0 14px 34px rgba(221,57,2,.12);
     }
-    .btn-group:hover{filter: brightness(1.02); transform: translateY(-1px);}
 
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
       border-radius:999px;
-      background: rgba(255,208,0,.14);
-      border:1px solid rgba(255,176,0,.30);
-      color: rgba(36,27,0,.82);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.22);
+      color: rgba(58,13,2,.82);
       font-size:12px;
-      font-weight:800;
+      font-weight:900;
     }
     .dot{
       width:8px; height:8px; border-radius:999px;
       background: var(--brand2);
-      box-shadow: 0 0 0 6px rgba(255,176,0,.16);
+      box-shadow: 0 0 0 6px rgba(221,57,2,.12);
     }
 
     /* HERO */
@@ -204,14 +186,14 @@
       align-items:center;
     }
     .hero h1{
-      font-size: clamp(28px, 4vw, 50px);
+      font-size: clamp(28px, 4vw, 52px);
       line-height:1.06;
       margin: 14px 0 12px;
       letter-spacing:-.9px;
     }
     .hero h1 .hl{
-      color: #8a6a00;
-      background: linear-gradient(180deg, rgba(255,208,0,.00), rgba(255,208,0,.32));
+      color:#7a1a02;
+      background: linear-gradient(180deg, rgba(221,57,2,.00), rgba(221,57,2,.22));
       border-radius:10px;
       padding: 0 6px;
     }
@@ -235,13 +217,13 @@
       padding:9px 12px;
       border-radius: 999px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.76);
       box-shadow: 0 10px 24px rgba(11,18,32,.05);
     }
     .trust b{color: var(--ink);}
 
     .hero-card{
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.74);
       border:1px solid rgba(11,18,32,.10);
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
@@ -253,7 +235,7 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(520px 300px at 30% 0%, rgba(255,208,0,.18), transparent 60%),
+        radial-gradient(520px 300px at 30% 0%, rgba(221,57,2,.18), transparent 60%),
         radial-gradient(520px 300px at 90% 18%, rgba(0,140,255,.10), transparent 60%);
       opacity:.95;
       pointer-events:none;
@@ -268,7 +250,7 @@
     .kpi{
       padding:14px;
       border-radius: 16px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.86);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: 0 10px 24px rgba(11,18,32,.06);
     }
@@ -280,16 +262,16 @@
       padding:14px;
       border-radius:16px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       display:flex; gap:12px; align-items:flex-start;
       box-shadow: 0 10px 24px rgba(11,18,32,.05);
     }
     .icon{
       width:40px; height:40px; border-radius:16px;
-      background: rgba(255,208,0,.18);
-      border:1px solid rgba(255,176,0,.30);
+      background: rgba(221,57,2,.12);
+      border:1px solid rgba(221,57,2,.22);
       display:flex; align-items:center; justify-content:center;
-      color: #8a6a00;
+      color:#7a1a02;
       flex:0 0 auto;
       font-weight: 900;
     }
@@ -307,14 +289,14 @@
       gap:16px;
     }
     .card{
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       border:1px solid rgba(11,18,32,.10);
       border-radius: var(--radius);
       box-shadow: var(--shadow2);
       padding: 18px;
       transition: transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
     }
-    .card:hover{transform: translateY(-2px); border-color: rgba(11,18,32,.16); background: rgba(255,255,255,.92);}
+    .card:hover{transform: translateY(-2px); border-color: rgba(11,18,32,.16); background: rgba(255,255,255,.95);}
     .card h3{margin: 10px 0 8px; font-size: 16px; letter-spacing:-.2px;}
     .card p{margin:0; color:var(--muted); font-size:13.8px; line-height:1.6;}
 
@@ -342,7 +324,7 @@
     .step{
       padding:18px;
       border-radius: var(--radius);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow2);
     }
@@ -352,10 +334,10 @@
       justify-content:center;
       width:34px; height:34px;
       border-radius: 14px;
-      background: rgba(255,208,0,.20);
-      border:1px solid rgba(255,176,0,.35);
+      background: rgba(221,57,2,.14);
+      border:1px solid rgba(221,57,2,.22);
       font-weight: 1000;
-      color: #7a5d00;
+      color:#7a1a02;
     }
     .step h3{margin:10px 0 6px; font-size:16px}
     .step p{margin:0; color:var(--muted); font-size:13.6px; line-height:1.6}
@@ -370,9 +352,9 @@
       font-size:12px;
       font-weight:1000;
       color: var(--brandInk);
-      background: linear-gradient(180deg, rgba(255,208,0,.98), rgba(255,176,0,.98));
-      box-shadow: 0 14px 40px rgba(255,176,0,.16);
-      border:1px solid rgba(255,176,0,.35);
+      background: linear-gradient(180deg, rgba(221,57,2,.28), rgba(221,57,2,.16));
+      box-shadow: 0 14px 40px rgba(221,57,2,.12);
+      border:1px solid rgba(221,57,2,.25);
     }
     .price-title{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 8px;}
     .price-title h3{margin:0; font-size:18px; letter-spacing:-.2px;}
@@ -390,7 +372,7 @@
       font-size: 30px;
       font-weight:1000;
       letter-spacing:-.8px;
-      color: #7a5d00;
+      color:#7a1a02;
     }
     .price small{
       font-size: 12.5px;
@@ -411,10 +393,10 @@
     .muted{color:var(--muted); font-size:13px; line-height:1.6;}
     .hr{height:1px; background: rgba(11,18,32,.10); margin: 14px 0;}
     .highlight{
-      border-color: rgba(255,176,0,.55) !important;
+      border-color: rgba(221,57,2,.35) !important;
       background:
-        radial-gradient(700px 420px at 20% 0%, rgba(255,208,0,.22), transparent 60%),
-        rgba(255,255,255,.82);
+        radial-gradient(700px 420px at 20% 0%, rgba(221,57,2,.18), transparent 60%),
+        rgba(255,255,255,.86);
       transform: translateY(-2px);
     }
     .price-foot{
@@ -422,7 +404,7 @@
       padding: 12px;
       border-radius: 16px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.74);
+      background: rgba(255,255,255,.78);
       color: var(--muted);
       font-size: 13px;
       line-height: 1.5;
@@ -434,7 +416,7 @@
     .quiz-panel{
       padding: 18px;
       border-radius: var(--radius2);
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.82);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -444,7 +426,7 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(520px 320px at 30% 0%, rgba(255,208,0,.18), transparent 60%),
+        radial-gradient(520px 320px at 30% 0%, rgba(221,57,2,.16), transparent 60%),
         radial-gradient(520px 320px at 80% 25%, rgba(0,140,255,.08), transparent 60%);
       pointer-events:none;
       opacity:.95;
@@ -461,10 +443,10 @@
     .bar{
       height:100%;
       width:0%;
-      background: linear-gradient(90deg, rgba(255,208,0,.98), rgba(255,176,0,.98));
+      background: linear-gradient(90deg, rgba(221,57,2,.92), rgba(255,74,22,.92));
       border-radius:999px;
       transition: width .35s var(--ease);
-      box-shadow: 0 14px 40px rgba(255,176,0,.12);
+      box-shadow: 0 14px 40px rgba(221,57,2,.10);
     }
     .q-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
     .q-step{font-size:12px; color:var(--muted);}
@@ -475,20 +457,20 @@
       padding: 12px 12px;
       border-radius: 16px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.88);
       cursor:pointer;
       transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
       display:flex; gap:12px; align-items:flex-start;
       box-shadow: 0 10px 22px rgba(11,18,32,.05);
     }
-    .opt:hover{transform: translateY(-1px); border-color: rgba(255,176,0,.45); background: rgba(255,208,0,.12);}
+    .opt:hover{transform: translateY(-1px); border-color: rgba(221,57,2,.30); background: rgba(221,57,2,.08);}
     .opt .bullet{
       width:22px; height:22px; border-radius:10px;
       border:1px solid rgba(11,18,32,.12);
       background: rgba(11,18,32,.03);
       flex:0 0 auto;
       display:flex; align-items:center; justify-content:center;
-      color: #7a5d00;
+      color:#7a1a02;
       font-weight:1000;
       font-size:12px;
       margin-top:1px;
@@ -499,7 +481,7 @@
     .quiz-side{
       padding: 18px;
       border-radius: var(--radius2);
-      background: rgba(255,255,255,.74);
+      background: rgba(255,255,255,.78);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow2);
     }
@@ -515,7 +497,7 @@
       padding:14px;
       border-radius: 18px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.90);
       margin-bottom: 12px;
       box-shadow: 0 10px 22px rgba(11,18,32,.05);
     }
@@ -529,17 +511,17 @@
     .who{display:flex; align-items:center; gap:10px; margin-top: 14px; color: var(--muted); font-size:12.8px;}
     .avatar{
       width:34px; height:34px; border-radius:14px;
-      background: rgba(255,208,0,.18);
-      border:1px solid rgba(255,176,0,.28);
+      background: rgba(221,57,2,.12);
+      border:1px solid rgba(221,57,2,.20);
       display:flex; align-items:center; justify-content:center;
-      color: #7a5d00;
+      color:#7a1a02;
       font-weight: 1000;
     }
 
     /* FAQ */
     details{
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.84);
       border-radius: 16px;
       padding: 14px;
       box-shadow: 0 10px 26px rgba(11,18,32,.06);
@@ -553,9 +535,9 @@
     .cta-band{
       padding: 18px;
       border-radius: var(--radius2);
-      border:1px solid rgba(255,176,0,.40);
-      background: radial-gradient(700px 420px at 20% 0%, rgba(255,208,0,.26), transparent 60%),
-                  rgba(255,255,255,.80);
+      border:1px solid rgba(221,57,2,.22);
+      background: radial-gradient(700px 420px at 20% 0%, rgba(221,57,2,.14), transparent 60%),
+                  rgba(255,255,255,.86);
       box-shadow: var(--shadow);
       display:flex;
       align-items:center;
@@ -596,24 +578,17 @@
     }
     .wa-float:hover{transform: translateY(-2px); filter: brightness(1.03);}
 
-    /* ✅ ÍCONE WHATSAPP PERFEITO (CÍRCULO VERDE + ÍCONE BRANCO REAL) */
+    /* ✅ ÍCONE WHATSAPP REAL (sem “WA”) */
     .wa-badge{
-      width:38px;
-      height:38px;
-      border-radius:999px;
-      background: #25D366;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 10px 22px rgba(37,211,102,.35), inset 0 -3px 6px rgba(0,0,0,.14);
-      border:2px solid rgba(255,255,255,.35);
-      flex: 0 0 auto;
+      width:34px; height:34px; border-radius:999px;
+      background: rgba(255,255,255,.22);
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid rgba(0,0,0,.06);
     }
     .wa-badge svg{
-      width:20px;
-      height:20px;
+      width:18px; height:18px;
       display:block;
-      fill:#ffffff;
+      fill: currentColor;
     }
 
     /* Anim */
@@ -637,7 +612,6 @@
       .brand{min-width:auto;}
     }
 
-    /* MOBILE */
     @media (max-width: 560px){
       .wrap{width: min(var(--max), calc(100% - 22px));}
 
@@ -652,15 +626,8 @@
         justify-content:center;
         min-width: 0;
       }
-
-      /* ✅ LOGO PERFEITA NO CELULAR */
-      .brand img{
-        width:62px;
-        height:62px;
-        border-radius:18px;
-        padding:6px;
-      }
-
+      /* ✅ Logo ainda grande no mobile, mas proporcional */
+      .brand img{width:66px; height:66px; border-radius:20px; padding:6px;}
       .brand .name strong{font-size: 15px;}
       .brand .name span{font-size: 12px;}
 
@@ -716,13 +683,6 @@
 
       .cta-band{padding:16px;}
       .wa-float{right:12px; bottom:12px; padding: 11px 12px;}
-    }
-
-    @media (max-width: 360px){
-      .hero h1{font-size: 28px;}
-      .cta-row{gap:8px;}
-      .hero-actions{gap:8px;}
-      .cta-row .btn, .hero-actions .btn{font-size: 13px;}
     }
   </style>
 </head>
@@ -870,7 +830,7 @@
           <ul class="list">
             <li class="li"><span class="check">✓</span>Bio otimizada + destaques prontos</li>
             <li class="li"><span class="check">✓</span>Identidade visual consistente</li>
-            <li class="li"><span class="check">✓</span>Conteúdo com intenção de compra (não só “postar por postar”)</li>
+            <li class="li"><span class="check">✓</span>Conteúdo com intenção de compra</li>
           </ul>
         </div>
       </div>
@@ -1191,9 +1151,10 @@
   <!-- Floating WhatsApp -->
   <a class="wa-float" id="waFloat" href="#" aria-label="Falar no WhatsApp">
     <span class="wa-badge" aria-hidden="true">
-      <!-- ✅ ÍCONE OFICIAL WHATSAPP (SVG) -->
-      <svg viewBox="0 0 24 24">
-        <path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.48 0 .15 5.33.15 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.9 11.9 0 005.75 1.46h.01c6.57 0 11.9-5.33 11.9-11.9 0-3.18-1.24-6.17-3.44-8.43zM12.06 21.6h-.01a9.7 9.7 0 01-4.95-1.36l-.35-.2-3.74.98 1-3.64-.23-.37a9.67 9.67 0 01-1.48-5.12c0-5.35 4.36-9.71 9.73-9.71 2.6 0 5.05 1.01 6.88 2.83a9.66 9.66 0 012.85 6.88c0 5.36-4.36 9.71-9.71 9.71zm5.33-7.28c-.29-.14-1.72-.85-1.98-.95-.27-.1-.47-.14-.67.14-.2.29-.76.95-.93 1.15-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.35-1.43-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.12-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.2 3.02.14.19 2.07 3.16 5.02 4.43.7.3 1.25.48 1.67.62.7.22 1.33.19 1.83.12.56-.08 1.72-.7 1.96-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
+      <!-- WhatsApp SVG (limpo e profissional) -->
+      <svg viewBox="0 0 32 32" role="img" aria-label="WhatsApp">
+        <path d="M19.1 17.5c-.3-.1-1.7-.8-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1c-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-1-2.2c-.3-.6-.6-.5-.7-.5H8.4c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.5s1 2.9 1.2 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3z"/>
+        <path d="M26.6 5.4C23.7 2.5 19.9 1 16 1 8.3 1 2 7.3 2 15c0 2.5.7 4.9 1.9 7L2 31l9.2-1.8c2 1.1 4.3 1.7 6.6 1.7 7.7 0 14-6.3 14-14 0-3.9-1.5-7.7-4.2-10.5zM16 28.6c-2.2 0-4.3-.6-6.2-1.7l-.4-.2-5.5 1.1 1.2-5.4-.2-.5c-1.2-2-1.8-4.4-1.8-6.8C3.1 8.3 9.3 2.9 16 2.9c3.4 0 6.6 1.3 9 3.7 2.4 2.4 3.7 5.6 3.7 9 0 6.9-5.8 13-12.7 13z"/>
       </svg>
     </span>
     <span>Chamar no WhatsApp</span>
@@ -1443,7 +1404,7 @@
 
       const html = `
         <div class="pill"><span class="dot"></span> Recomendação personalizada</div>
-        <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a5d00">${pack}</span></h3>
+        <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a1a02">${pack}</span></h3>
         <p class="q-hint">Com base nas suas respostas, esse pacote é o que mais aumenta suas chances de aparecer e converter em mensagens.</p>
 
         <div class="side-box" style="margin-top:14px;">
@@ -1469,9 +1430,9 @@
       waFloat.href = waLink(texto);
     }
 
-    // init quiz
     renderQuestion();
     updateProgress();
   </script>
 </body>
 </html>
+
