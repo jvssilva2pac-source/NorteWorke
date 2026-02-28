@@ -21,7 +21,7 @@
       --panel2:rgba(11,18,32,.06);
       --line:rgba(11,18,32,.10);
 
-      /* Brand (mantendo suas cores) */
+      /* Brand (mantendo cores) */
       --brand:#dd3902;
       --brand2:#ff4a16;
       --brandInk:#3a0d02;
@@ -29,20 +29,25 @@
       /* WhatsApp */
       --wa:#25D366;
 
-      /* Sombras mais premium */
-      --shadow: 0 24px 70px rgba(11,18,32,.12);
+      /* Sombras */
+      --shadow: 0 26px 72px rgba(11,18,32,.12);
       --shadow2: 0 14px 40px rgba(11,18,32,.10);
+      --shadow3: 0 10px 24px rgba(11,18,32,.08);
 
       --radius:18px;
       --radius2:26px;
       --max:1120px;
       --ease: cubic-bezier(.2,.8,.2,1);
 
-      /* Novos “tokens” (mesmas cores base, só refinando o visual) */
       --glass: rgba(255,255,255,.78);
-      --glass2: rgba(255,255,255,.90);
-      --focus: 0 0 0 4px rgba(221,57,2,.18);
-      --focus2: 0 0 0 4px rgba(37,211,102,.18);
+      --glass2: rgba(255,255,255,.92);
+
+      --focusBrand: 0 0 0 4px rgba(221,57,2,.18);
+      --focusWA: 0 0 0 4px rgba(37,211,102,.18);
+
+      /* Tipografia */
+      --h1: clamp(34px, 4.8vw, 60px);
+      --h2: clamp(24px, 3.0vw, 34px);
     }
 
     *{box-sizing:border-box}
@@ -60,36 +65,38 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     ::selection{background: rgba(221,57,2,.18);}
 
-    .wrap{
-      width:min(var(--max), calc(100% - 40px));
-      margin:0 auto;
-    }
+    .wrap{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
 
-    /* Grid fundo leve (mais suave) */
+    /* Fundo com grid suave + brilho */
     .bg-grid{
       position:fixed; inset:0;
-      pointer-events:none; opacity:.14;
+      pointer-events:none; opacity:.13;
       background-image:
         linear-gradient(rgba(11,18,32,.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(11,18,32,.06) 1px, transparent 1px);
-      background-size: 64px 64px;
+      background-size: 68px 68px;
       mask-image: radial-gradient(740px 460px at 50% 10%, black, transparent 72%);
     }
-
-    /* ====== ACESSIBILIDADE / FOCO ====== */
-    :focus-visible{
-      outline:none;
-      box-shadow: var(--focus);
-      border-radius: 14px;
+    .bg-glow{
+      position:fixed; inset:-20%;
+      pointer-events:none;
+      background:
+        radial-gradient(520px 320px at 18% 20%, rgba(221,57,2,.10), transparent 60%),
+        radial-gradient(520px 320px at 80% 22%, rgba(0,140,255,.08), transparent 60%),
+        radial-gradient(520px 320px at 50% 80%, rgba(221,57,2,.06), transparent 60%);
+      filter: blur(18px);
+      opacity:.95;
     }
-    .btn.btn-wa:focus-visible{box-shadow: var(--focus2);}
 
-    /* ====== TOPBAR ====== */
+    /* Acessibilidade / foco */
+    :focus-visible{outline:none; box-shadow: var(--focusBrand); border-radius: 14px;}
+    .btn.btn-wa:focus-visible{box-shadow: var(--focusWA);}
+
+    /* TOPBAR profissional */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(16px);
@@ -107,11 +114,9 @@
       display:flex; align-items:center; gap:12px;
       min-width: 260px;
     }
-
-    /* Logo premium e destacada */
     .brand img{
-      width:88px; height:88px;
-      border-radius:24px;
+      width:82px; height:82px;
+      border-radius:22px;
       object-fit:contain;
       padding:10px;
       background:
@@ -127,36 +132,36 @@
     }
     .brand img:hover{
       transform: translateY(-2px);
-      filter: saturate(1.06) contrast(1.02);
+      filter: saturate(1.05) contrast(1.02);
       box-shadow:
         0 26px 76px rgba(11,18,32,.16),
         0 14px 28px rgba(221,57,2,.14),
         inset 0 1px 0 rgba(255,255,255,.60);
     }
-
     .brand .name{display:flex; flex-direction:column; line-height:1.08;}
-    .brand .name strong{
-      letter-spacing:.2px;
-      font-size: 15px;
-    }
-    .brand .name span{
-      font-size:12.4px;
-      color:var(--muted);
-    }
+    .brand .name strong{letter-spacing:.2px; font-size: 15px;}
+    .brand .name span{font-size:12.4px; color:var(--muted);}
 
-    nav{display:flex; gap:10px; align-items:center;}
+    nav{display:flex; gap:8px; align-items:center;}
     nav a{
       font-size:13px; color:var(--muted);
       padding:9px 12px;
       border-radius:999px;
-      transition: all .25s var(--ease);
+      transition: all .22s var(--ease);
       border:1px solid transparent;
+      position: relative;
     }
     nav a:hover{
       color:var(--ink);
       background: rgba(11,18,32,.04);
       border-color: rgba(11,18,32,.12);
       transform: translateY(-1px);
+    }
+    nav a.active{
+      color: var(--brandInk);
+      background: rgba(221,57,2,.10);
+      border-color: rgba(221,57,2,.22);
+      box-shadow: 0 10px 24px rgba(221,57,2,.10);
     }
 
     .cta-row{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
@@ -179,7 +184,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* brilho sutil “premium” */
     .btn:before{
       content:"";
       position:absolute;
@@ -191,7 +195,6 @@
       pointer-events:none;
     }
     .btn:hover:before{opacity:.9}
-
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.98);
@@ -206,20 +209,17 @@
       color: var(--brandInk);
       box-shadow: 0 18px 44px rgba(221,57,2,.18);
     }
-
     .btn-wa{
       border:none;
       background: linear-gradient(180deg, rgba(37,211,102,.98), rgba(26,168,79,.98));
       color:#07120b;
       box-shadow: 0 20px 50px rgba(37,211,102,.22);
     }
-
     .btn-ghost{
       background: rgba(11,18,32,.03);
       border-color: rgba(11,18,32,.10);
       color: var(--ink);
     }
-
     .btn-group{
       border-color: rgba(221,57,2,.28);
       background: rgba(221,57,2,.09);
@@ -243,18 +243,18 @@
       box-shadow: 0 0 0 7px rgba(221,57,2,.12);
     }
 
-    /* ====== HERO ====== */
-    .hero{padding: 52px 0 18px; position:relative;}
+    /* HERO mais “sério” e conversivo */
+    .hero{padding: 54px 0 18px; position:relative;}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.16fr .84fr;
-      gap:28px;
-      align-items:center;
+      grid-template-columns: 1.12fr .88fr;
+      gap:22px;
+      align-items:stretch;
     }
 
     .hero h1{
-      font-size: clamp(32px, 4.4vw, 58px);
-      line-height:1.03;
+      font-size: var(--h1);
+      line-height:1.02;
       margin: 14px 0 12px;
       letter-spacing:-1.1px;
     }
@@ -268,11 +268,12 @@
     }
     .hero p{
       margin: 0 0 14px;
-      font-size: 16.6px;
+      font-size: 16.8px;
       color: var(--muted);
-      line-height:1.70;
-      max-width: 64ch;
+      line-height:1.72;
+      max-width: 66ch;
     }
+
     .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
 
     .trust-row{
@@ -287,7 +288,7 @@
       border-radius: 999px;
       border:1px solid rgba(11,18,32,.10);
       background: rgba(255,255,255,.78);
-      box-shadow: 0 12px 28px rgba(11,18,32,.06);
+      box-shadow: var(--shadow3);
       transition: transform .22s var(--ease);
     }
     .trust:hover{transform: translateY(-2px)}
@@ -301,23 +302,23 @@
       padding: 18px;
       position:relative;
       overflow:hidden;
+      min-height: 100%;
     }
     .hero-card:before{
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(560px 320px at 30% 0%, rgba(221,57,2,.20), transparent 60%),
-        radial-gradient(560px 320px at 90% 18%, rgba(0,140,255,.12), transparent 60%);
+        radial-gradient(620px 360px at 30% 0%, rgba(221,57,2,.20), transparent 60%),
+        radial-gradient(620px 360px at 90% 18%, rgba(0,140,255,.12), transparent 60%);
       opacity:.95;
       pointer-events:none;
     }
     .hero-card:after{
       content:"";
-      position:absolute;
-      inset:0;
+      position:absolute; inset:0;
       pointer-events:none;
       background: linear-gradient(180deg, rgba(255,255,255,.35), transparent 35%);
-      opacity:.6;
+      opacity:.55;
     }
     .hero-card > *{position:relative; z-index:1;}
 
@@ -341,44 +342,80 @@
       box-shadow: 0 18px 40px rgba(11,18,32,.09);
     }
     .kpi strong{display:block; font-size:14px; letter-spacing:-.2px;}
-    .kpi span{display:block; font-size:12.7px; color:var(--muted); margin-top:6px; line-height:1.45}
+    .kpi span{display:block; font-size:12.7px; color:var(--muted); margin-top:6px; line-height:1.5}
 
     .hero-mini{
       margin-top:12px;
       padding:14px;
       border-radius:18px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.86);
       display:flex; gap:12px; align-items:flex-start;
       box-shadow: 0 12px 26px rgba(11,18,32,.06);
     }
 
+    /* Ícones mais “enterprise” (SVG) */
     .icon{
-      width:40px; height:40px; border-radius:16px;
+      width:44px; height:44px; border-radius:16px;
       background: rgba(221,57,2,.12);
       border:1px solid rgba(221,57,2,.20);
       display:flex; align-items:center; justify-content:center;
       color:#7a1a02;
       flex:0 0 auto;
       font-weight: 1000;
-      font-size: 18px;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-mini strong{font-size:13.8px}
-    .hero-mini p{margin:6px 0 0; font-size:13px; color:var(--muted); line-height:1.55}
-
-    /* ====== SECTIONS ====== */
-    .section{padding: 62px 0;}
-    .section h2{font-size: 31px; letter-spacing:-.55px; margin:0 0 10px;}
-    .section .sub{color:var(--muted); margin:0 0 22px; line-height:1.75; max-width: 80ch;}
-
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
+    .icon:after{
+      content:"";
+      position:absolute; inset:-60%;
+      background: radial-gradient(220px 120px at 20% 0%, rgba(255,255,255,.55), transparent 55%);
+      opacity:.7;
+      pointer-events:none;
     }
+    .icon svg{width:22px; height:22px; display:block; fill: currentColor;}
+    .hero-mini strong{font-size:14px}
+    .hero-mini p{margin:6px 0 0; font-size:13.2px; color:var(--muted); line-height:1.6}
+
+    /* Bloco “imagem” (ilustração) */
+    .hero-visual{
+      margin-top:14px;
+      border-radius: 20px;
+      border:1px solid rgba(11,18,32,.10);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 26px rgba(11,18,32,.06);
+      overflow:hidden;
+    }
+    .hero-visual .cap{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding:12px 12px 0;
+    }
+    .hero-visual .cap span{
+      font-size:12px; color: var(--muted);
+      font-weight: 900;
+      letter-spacing:.16px;
+      text-transform: uppercase;
+    }
+    .hero-visual .cap .mini{
+      font-size:12px; color: rgba(58,13,2,.84);
+      background: rgba(221,57,2,.10);
+      border:1px solid rgba(221,57,2,.20);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight: 1000;
+    }
+    .hero-visual svg{width:100%; height:auto; display:block;}
+
+    /* SECTIONS */
+    .section{padding: 64px 0;}
+    .section h2{font-size: var(--h2); letter-spacing:-.55px; margin:0 0 10px;}
+    .section .sub{color:var(--muted); margin:0 0 22px; line-height:1.78; max-width: 82ch;}
+
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
 
     .card{
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       border:1px solid rgba(11,18,32,.10);
       border-radius: 22px;
       box-shadow: var(--shadow2);
@@ -391,23 +428,24 @@
       content:"";
       position:absolute;
       inset:-1px;
-      background: radial-gradient(520px 220px at 12% 0%, rgba(221,57,2,.10), transparent 55%);
-      opacity:.75;
+      background:
+        radial-gradient(560px 240px at 10% 0%, rgba(221,57,2,.10), transparent 55%),
+        radial-gradient(560px 240px at 90% 0%, rgba(0,140,255,.06), transparent 55%);
+      opacity:.85;
       pointer-events:none;
     }
     .card > *{position:relative; z-index:1;}
-
     .card:hover{
       transform: translateY(-3px);
       border-color: rgba(11,18,32,.16);
-      background: rgba(255,255,255,.96);
+      background: rgba(255,255,255,.97);
       box-shadow: 0 18px 48px rgba(11,18,32,.12);
     }
-    .card h3{margin: 10px 0 8px; font-size: 16.6px; letter-spacing:-.2px;}
-    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.70;}
+    .card h3{margin: 10px 0 8px; font-size: 16.8px; letter-spacing:-.2px;}
+    .card p{margin:0; color:var(--muted); font-size:14.1px; line-height:1.75;}
 
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:9px;}
-    .li{display:flex; gap:10px; align-items:flex-start; color: var(--muted); font-size: 13.7px; line-height:1.65;}
+    .li{display:flex; gap:10px; align-items:flex-start; color: var(--muted); font-size: 13.8px; line-height:1.7;}
     .check{
       width:18px; height:18px; border-radius:7px;
       background: rgba(37,211,102,.12);
@@ -420,17 +458,12 @@
       font-size:12px;
     }
 
-    /* ====== PROCESS ====== */
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-      margin-top: 10px;
-    }
+    /* PROCESS */
+    .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-top: 10px;}
     .step{
       padding:18px;
       border-radius: 22px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow2);
       transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
@@ -441,32 +474,24 @@
       content:"";
       position:absolute;
       inset:-1px;
-      background: radial-gradient(520px 220px at 12% 0%, rgba(0,140,255,.08), transparent 55%);
+      background: radial-gradient(560px 240px at 10% 0%, rgba(0,140,255,.08), transparent 55%);
       opacity:.75;
       pointer-events:none;
     }
     .step > *{position:relative; z-index:1;}
-
-    .step:hover{
-      transform: translateY(-3px);
-      border-color: rgba(11,18,32,.16);
-      box-shadow: 0 18px 48px rgba(11,18,32,.12);
-    }
+    .step:hover{transform: translateY(-3px); border-color: rgba(11,18,32,.16); box-shadow: 0 18px 48px rgba(11,18,32,.12);}
     .step .num{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:36px; height:36px;
-      border-radius: 14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius: 14px;
       background: rgba(221,57,2,.14);
       border:1px solid rgba(221,57,2,.20);
       font-weight: 1000;
       color:#7a1a02;
     }
-    .step h3{margin:10px 0 6px; font-size:16.6px}
-    .step p{margin:0; color:var(--muted); font-size:13.9px; line-height:1.70}
+    .step h3{margin:10px 0 6px; font-size:16.7px}
+    .step p{margin:0; color:var(--muted); font-size:14px; line-height:1.75}
 
-    /* ====== PRICING ====== */
+    /* PRICING */
     .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
     .price-card{position:relative; overflow:hidden;}
     .badge{
@@ -481,7 +506,7 @@
       border:1px solid rgba(221,57,2,.24);
     }
     .price-title{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 8px;}
-    .price-title h3{margin:0; font-size:18.6px; letter-spacing:-.28px;}
+    .price-title h3{margin:0; font-size:18.8px; letter-spacing:-.28px;}
     .tag{
       font-size:12px; color:var(--muted);
       padding:7px 10px;
@@ -490,7 +515,6 @@
       background: rgba(11,18,32,.03);
       white-space:nowrap;
     }
-
     .price{
       margin: 14px 0 10px;
       font-size: 32px;
@@ -504,7 +528,7 @@
       font-weight: 800;
       display:block;
       margin-top: 8px;
-      line-height: 1.45;
+      line-height: 1.5;
     }
     .strike{
       display:inline-block;
@@ -514,34 +538,65 @@
       text-decoration: line-through;
       font-weight: 900;
     }
-    .muted{color:var(--muted); font-size:13.4px; line-height:1.70;}
+    .muted{color:var(--muted); font-size:13.6px; line-height:1.75;}
     .hr{height:1px; background: rgba(11,18,32,.10); margin: 14px 0;}
 
+    /* destaque “mais vendido” mais elegante */
     .highlight{
       border-color: rgba(221,57,2,.34) !important;
       background:
-        radial-gradient(720px 460px at 18% 0%, rgba(221,57,2,.18), transparent 60%),
-        rgba(255,255,255,.92);
+        radial-gradient(760px 520px at 18% 0%, rgba(221,57,2,.18), transparent 60%),
+        rgba(255,255,255,.94);
       transform: translateY(-2px);
+      box-shadow: 0 26px 72px rgba(11,18,32,.12);
     }
+
     .price-foot{
       margin-top: 12px;
       padding: 12px;
       border-radius: 18px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.88);
       color: var(--muted);
-      font-size: 13.3px;
-      line-height: 1.60;
+      font-size: 13.5px;
+      line-height: 1.65;
     }
     .price-foot b{color: var(--ink);}
 
-    /* ====== QUIZ ====== */
+    /* BLOCO “GARANTIA/SEGURANÇA” (influencia compra) */
+    .confidence{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+    }
+    .conf{
+      padding:14px;
+      border-radius:20px;
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(11,18,32,.10);
+      box-shadow: var(--shadow3);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .conf .b{
+      width:34px; height:34px;
+      border-radius:14px;
+      background: rgba(221,57,2,.12);
+      border:1px solid rgba(221,57,2,.20);
+      display:flex; align-items:center; justify-content:center;
+      color:#7a1a02;
+      flex:0 0 auto;
+      font-weight: 1000;
+    }
+    .conf strong{display:block; font-size:13.8px}
+    .conf span{display:block; margin-top:4px; font-size:13px; color:var(--muted); line-height:1.6}
+
+    /* QUIZ */
     .quiz{display:grid; grid-template-columns: 1fr .85fr; gap:16px; align-items:stretch;}
     .quiz-panel{
       padding: 18px;
       border-radius: 28px;
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.88);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -551,19 +606,20 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(560px 340px at 30% 0%, rgba(221,57,2,.18), transparent 60%),
-        radial-gradient(560px 340px at 80% 25%, rgba(0,140,255,.09), transparent 60%);
+        radial-gradient(620px 360px at 30% 0%, rgba(221,57,2,.18), transparent 60%),
+        radial-gradient(620px 360px at 80% 25%, rgba(0,140,255,.09), transparent 60%);
       pointer-events:none;
       opacity:.95;
     }
     .quiz-panel:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,.35), transparent 38%);
+      background: linear-gradient(180deg, rgba(255,255,255,.34), transparent 38%);
       opacity:.55;
       pointer-events:none;
     }
     .quiz-panel > *{position:relative; z-index:1;}
+
     .progress{
       height:10px;
       background: rgba(11,18,32,.06);
@@ -582,14 +638,15 @@
     }
     .q-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
     .q-step{font-size:12px; color:var(--muted);}
-    .q-title{font-size: 21.5px; margin: 10px 0 4px; letter-spacing:-.35px; line-height:1.25;}
-    .q-hint{margin:0 0 14px; color:var(--muted); font-size:13.2px; line-height:1.70;}
+    .q-title{font-size: 22px; margin: 10px 0 4px; letter-spacing:-.35px; line-height:1.25;}
+    .q-hint{margin:0 0 14px; color:var(--muted); font-size:13.4px; line-height:1.75;}
     .options{display:grid; gap:10px;}
+
     .opt{
       padding: 13px 13px;
       border-radius: 18px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       cursor:pointer;
       transition: transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
       display:flex; gap:12px; align-items:flex-start;
@@ -610,7 +667,7 @@
     .opt:hover{
       transform: translateY(-2px);
       border-color: rgba(221,57,2,.28);
-      background: rgba(221,57,2,.07);
+      background: rgba(221,57,2,.06);
       box-shadow: 0 18px 44px rgba(11,18,32,.10);
     }
     .opt .bullet{
@@ -624,13 +681,13 @@
       font-size:12px;
       margin-top:1px;
     }
-    .opt .txt strong{display:block; font-size:13.9px}
-    .opt .txt span{display:block; color:var(--muted); font-size:12.8px; margin-top:4px; line-height:1.45}
+    .opt .txt strong{display:block; font-size:14px}
+    .opt .txt span{display:block; color:var(--muted); font-size:12.9px; margin-top:4px; line-height:1.5}
 
     .quiz-side{
       padding: 18px;
       border-radius: 28px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       border:1px solid rgba(11,18,32,.10);
       box-shadow: var(--shadow2);
       position: relative;
@@ -640,12 +697,11 @@
       content:"";
       position:absolute;
       inset:-1px;
-      background: radial-gradient(520px 240px at 20% 0%, rgba(221,57,2,.10), transparent 55%);
+      background: radial-gradient(560px 260px at 20% 0%, rgba(221,57,2,.10), transparent 55%);
       opacity:.70;
       pointer-events:none;
     }
     .quiz-side > *{position:relative; z-index:1;}
-
     .mini-title{
       font-size: 12px;
       margin: 0 0 10px;
@@ -658,31 +714,38 @@
       padding:14px;
       border-radius: 20px;
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       margin-bottom: 12px;
       box-shadow: 0 12px 26px rgba(11,18,32,.06);
     }
-    .side-box strong{display:block; font-size:14.2px}
-    .side-box span{display:block; margin-top:6px; color:var(--muted); font-size:13px; line-height:1.65}
-    .note{font-size:13px; color:var(--muted); line-height:1.70;}
+    .side-box strong{display:block; font-size:14.3px}
+    .side-box span{display:block; margin-top:6px; color:var(--muted); font-size:13.1px; line-height:1.65}
+    .note{font-size:13.1px; color:var(--muted); line-height:1.75;}
 
-    /* ====== TESTIMONIALS ====== */
+    /* TESTIMONIALS mais críveis (layout “sério”) */
     .testi{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
-    .quote{font-size: 13.9px; color: var(--muted); line-height:1.70; margin: 10px 0 0;}
-    .who{display:flex; align-items:center; gap:10px; margin-top: 14px; color: var(--muted); font-size:13px;}
+    .quote{font-size: 14px; color: var(--muted); line-height:1.75; margin: 10px 0 0;}
+    .who{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top: 14px; color: var(--muted); font-size:13px;}
+    .who .left{display:flex; align-items:center; gap:10px;}
     .avatar{
-      width:34px; height:34px; border-radius:14px;
+      width:36px; height:36px; border-radius:14px;
       background: rgba(221,57,2,.12);
       border:1px solid rgba(221,57,2,.18);
       display:flex; align-items:center; justify-content:center;
       color:#7a1a02;
       font-weight: 1000;
     }
+    .stars{
+      display:flex; gap:2px; color: rgba(221,57,2,.85);
+      font-size: 12px;
+      letter-spacing: .4px;
+      user-select:none;
+    }
 
-    /* ====== FAQ ====== */
+    /* FAQ */
     details{
       border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.88);
+      background: rgba(255,255,255,.90);
       border-radius: 18px;
       padding: 14px;
       box-shadow: 0 12px 28px rgba(11,18,32,.06);
@@ -696,15 +759,15 @@
     details + details{margin-top:10px}
     summary{cursor:pointer; font-weight:1000; list-style:none; outline:none;}
     summary::-webkit-details-marker{display:none;}
-    details p{margin: 10px 0 0; color: var(--muted); font-size: 13.8px; line-height:  1.70;}
+    details p{margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height:  1.75;}
 
-    /* ====== CTA FINAL ====== */
+    /* CTA FINAL */
     .cta-band{
       padding: 18px;
       border-radius: 28px;
       border:1px solid rgba(221,57,2,.20);
       background: radial-gradient(760px 460px at 20% 0%, rgba(221,57,2,.14), transparent 60%),
-                  rgba(255,255,255,.90);
+                  rgba(255,255,255,.92);
       box-shadow: var(--shadow);
       display:flex;
       align-items:center;
@@ -717,16 +780,16 @@
     .cta-band:after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,.34), transparent 38%);
+      background: linear-gradient(180deg, rgba(255,255,255,.32), transparent 40%);
       opacity:.55;
       pointer-events:none;
     }
     .cta-band > *{position:relative; z-index:1;}
-    .cta-band h3{margin:0; font-size:18.6px; letter-spacing:-.28px}
-    .cta-band p{margin:6px 0 0; color:var(--muted); font-size:13.9px; line-height:1.70; max-width: 74ch;}
+    .cta-band h3{margin:0; font-size:18.8px; letter-spacing:-.28px}
+    .cta-band p{margin:6px 0 0; color:var(--muted); font-size:14px; line-height:1.75; max-width: 76ch;}
     .cta-band .cta-row{margin-left:auto;}
 
-    /* ====== FOOTER ====== */
+    /* FOOTER */
     footer{
       padding: 46px 0 96px;
       border-top: 1px solid rgba(11,18,32,.10);
@@ -735,9 +798,9 @@
         rgba(11,18,32,.02);
     }
     .foot{display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap;}
-    .foot .small{color: var(--muted); font-size: 13px; line-height: 1.65; max-width: 72ch;}
+    .foot .small{color: var(--muted); font-size: 13.2px; line-height: 1.7; max-width: 72ch;}
 
-    /* ====== FLOATING WHATSAPP ====== */
+    /* FLOATING WHATSAPP */
     .wa-float{
       position:fixed;
       right:14px;
@@ -765,30 +828,26 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
       color:#ffffff;
     }
-    .wa-badge svg{
-      width:18px; height:18px;
-      display:block;
-      fill: currentColor;
-    }
+    .wa-badge svg{width:18px; height:18px; display:block; fill: currentColor;}
 
-    /* ====== Anim ====== */
+    /* Anim */
     .fade-in{
       opacity:0;
       transform: translateY(12px);
-      transition: opacity .75s var(--ease), transform .75s var(--ease);
+      transition: opacity .78s var(--ease), transform .78s var(--ease);
       will-change: opacity, transform;
     }
     .fade-in.show{opacity:1; transform: translateY(0);}
     .spacer{height:14px}
 
-    /* ====== Prefere menos animação ====== */
+    /* prefers reduced motion */
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
       .fade-in{transition:none}
       .btn, .card, .kpi, .trust, .step, details, .wa-float {transition:none}
     }
 
-    /* ====== RESPONSIVO ====== */
+    /* RESPONSIVO */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr; gap:16px;}
       .grid-3{grid-template-columns:1fr;}
@@ -796,6 +855,7 @@
       .pricing{grid-template-columns:1fr;}
       .quiz{grid-template-columns:1fr;}
       .testi{grid-template-columns:1fr;}
+      .confidence{grid-template-columns:1fr;}
       nav{display:none;}
       .brand{min-width:auto;}
     }
@@ -815,12 +875,10 @@
         min-width: 0;
       }
       .brand img{
-        width:78px; height:78px;
+        width:74px; height:74px;
         border-radius:22px;
         padding:9px;
       }
-      .brand .name strong{font-size: 15px;}
-      .brand .name span{font-size: 12px;}
 
       .cta-row{
         width:100%;
@@ -842,8 +900,8 @@
       }
 
       .hero{padding: 30px 0 14px;}
-      .hero h1{font-size: 31.5px; line-height:1.07;}
-      .hero p{font-size: 15.6px; line-height:1.72;}
+      .hero p{font-size: 15.8px;}
+
       .hero-actions{
         display:grid;
         grid-template-columns: 1fr 1fr;
@@ -862,16 +920,8 @@
       }
 
       .hero-kpis{grid-template-columns: 1fr; gap:10px;}
-      .kpi{padding:14px; border-radius:18px;}
 
       .section{padding: 44px 0;}
-      .section h2{font-size: 25.5px;}
-      .section .sub{font-size: 14.9px;}
-
-      .opt{padding:14px; border-radius:18px;}
-      .opt .bullet{width:24px; height:24px; border-radius:12px;}
-      .q-title{font-size: 19.8px;}
-
       .cta-band{padding:16px;}
       .wa-float{right:12px; bottom:12px; padding: 11px 12px;}
     }
@@ -879,6 +929,7 @@
 </head>
 
 <body>
+  <div class="bg-glow" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
   <!-- TOPBAR -->
@@ -892,12 +943,12 @@
         </div>
       </div>
 
-      <nav aria-label="Navegação">
-        <a href="#servicos">Serviços</a>
-        <a href="#como">Como funciona</a>
-        <a href="#pacotes">Pacotes</a>
-        <a href="#quiz">Diagnóstico</a>
-        <a href="#faq">Dúvidas</a>
+      <nav aria-label="Navegação" id="nav">
+        <a href="#servicos" data-sec="servicos">Serviços</a>
+        <a href="#como" data-sec="como">Como funciona</a>
+        <a href="#pacotes" data-sec="pacotes">Pacotes</a>
+        <a href="#quiz" data-sec="quiz">Diagnóstico</a>
+        <a href="#faq" data-sec="faq">Dúvidas</a>
       </nav>
 
       <div class="cta-row">
@@ -912,15 +963,16 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div class="fade-in">
-        <span class="pill"><span class="dot"></span> Presença digital completa (Google + Site + Instagram)</span>
+        <span class="pill"><span class="dot"></span> Presença local completa (Google + Site + Instagram)</span>
 
         <h1>
-          Faça sua empresa <span class="hl">aparecer no Google</span> e transformar visitas em <span class="hl">mensagens no WhatsApp</span>.
+          Apareça no <span class="hl">Google</span>, passe <span class="hl">confiança</span> e transforme visitas em
+          <span class="hl">mensagens no WhatsApp</span>.
         </h1>
 
         <p>
-          Estruturamos sua presença local para o cliente te encontrar, confiar e chamar.
-          Ideal para negócios de bairro, serviços e comércios que querem <b>mais contatos todos os dias</b>.
+          A NorteWork monta sua vitrine digital do jeito certo para o cliente te encontrar, confiar e chamar.
+          Ideal para negócios locais que querem <b>mais contatos todos os dias</b> — sem enrolação e com foco em resultado.
         </p>
 
         <div class="hero-actions">
@@ -933,22 +985,24 @@
         <div class="trust-row">
           <div class="trust">✅ <b>Foco em negócios locais</b> • mais “perto de mim”</div>
           <div class="trust">⚡ <b>Entrega rápida</b> • estrutura pronta pra vender</div>
-          <div class="trust">🧩 <b>Sem enrolação</b> • claro e direto</div>
+          <div class="trust">🧩 <b>Plano claro</b> • você sabe o que está comprando</div>
         </div>
 
         <div class="spacer"></div>
 
         <div class="hero-mini">
-          <div class="icon">★</div>
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.1 6.4H21l-5.6 4 2.1 6.4L12 14.9 6.5 18.8 8.6 12.4 3 8.4h6.9L12 2z"/></svg>
+          </div>
           <div>
-            <strong>Diagnóstico rápido (1 minuto)</strong>
+            <strong>Diagnóstico premium (1 minuto)</strong>
             <p>Responda o quiz e receba o pacote recomendado + mensagem pronta para enviar no WhatsApp.</p>
           </div>
         </div>
       </div>
 
       <div class="hero-card fade-in">
-        <div class="pill"><span class="dot"></span> Resultado: mais contatos todo dia</div>
+        <div class="pill"><span class="dot"></span> Resultado: mais contatos qualificados</div>
 
         <div class="hero-kpis">
           <div class="kpi">
@@ -957,23 +1011,102 @@
           </div>
           <div class="kpi">
             <strong>Google Business</strong>
-            <span>Você aparece no mapa e nas buscas da sua cidade (especialmente “perto de mim”).</span>
+            <span>Você aparece no mapa e nas buscas (inclusive “perto de mim”).</span>
           </div>
           <div class="kpi">
             <strong>Instagram Profissional</strong>
-            <span>Bio, destaques e identidade visual pra passar confiança e vender.</span>
+            <span>Bio, destaques e identidade que passam credibilidade.</span>
           </div>
           <div class="kpi">
             <strong>Plano Mensal</strong>
-            <span>Manutenção + conteúdo (nos pacotes que incluem) pra manter você visível.</span>
+            <span>Manutenção + conteúdo (nos pacotes) para manter você visível.</span>
           </div>
         </div>
 
+        <!-- “Imagem”/ilustração embutida (combina com o tema) -->
+        <div class="hero-visual" aria-label="Ilustração de performance">
+          <div class="cap">
+            <span>Visibilidade → Confiança → Conversão</span>
+            <span class="mini">+ WhatsApp</span>
+          </div>
+          <svg viewBox="0 0 1200 520" role="img" aria-label="Dashboard de marketing local">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="rgba(221,57,2,0.95)"/>
+                <stop offset="1" stop-color="rgba(255,74,22,0.95)"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop offset="0" stop-color="rgba(0,140,255,0.55)"/>
+                <stop offset="1" stop-color="rgba(0,140,255,0.10)"/>
+              </linearGradient>
+              <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="rgba(11,18,32,.15)"/>
+              </filter>
+            </defs>
+
+            <rect x="24" y="24" rx="28" ry="28" width="1152" height="472" fill="rgba(255,255,255,.92)" stroke="rgba(11,18,32,.10)" filter="url(#sh)"/>
+            <rect x="60" y="68" rx="16" ry="16" width="340" height="120" fill="rgba(11,18,32,.03)" stroke="rgba(11,18,32,.10)"/>
+            <rect x="424" y="68" rx="16" ry="16" width="350" height="120" fill="rgba(221,57,2,.06)" stroke="rgba(221,57,2,.18)"/>
+            <rect x="796" y="68" rx="16" ry="16" width="340" height="120" fill="rgba(37,211,102,.06)" stroke="rgba(37,211,102,.18)"/>
+
+            <!-- Titles -->
+            <text x="88" y="114" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="800" font-size="20" fill="rgba(11,18,32,.85)">Buscas no Google</text>
+            <text x="452" y="114" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="800" font-size="20" fill="rgba(58,13,2,.88)">Cliques no Site</text>
+            <text x="826" y="114" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="800" font-size="20" fill="rgba(7,18,11,.88)">Mensagens no WhatsApp</text>
+
+            <!-- Values -->
+            <text x="88" y="156" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="900" font-size="34" fill="rgba(11,18,32,.90)">+128%</text>
+            <text x="452" y="156" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="900" font-size="34" fill="rgba(122,26,2,.95)">+74%</text>
+            <text x="826" y="156" font-family="system-ui, -apple-system, Segoe UI, Roboto" font-weight="900" font-size="34" fill="rgba(20,138,67,.95)">+39%</text>
+
+            <!-- Chart area -->
+            <rect x="60" y="214" rx="18" ry="18" width="1076" height="248" fill="rgba(11,18,32,.02)" stroke="rgba(11,18,32,.10)"/>
+
+            <!-- Grid lines -->
+            <g stroke="rgba(11,18,32,.08)">
+              <line x1="92" y1="260" x2="1104" y2="260"/>
+              <line x1="92" y1="312" x2="1104" y2="312"/>
+              <line x1="92" y1="364" x2="1104" y2="364"/>
+              <line x1="92" y1="416" x2="1104" y2="416"/>
+            </g>
+
+            <!-- Bars (Google / Site / Whats) -->
+            <g>
+              <rect x="120" y="330" width="32" height="100" rx="12" fill="rgba(0,140,255,.25)"/>
+              <rect x="170" y="300" width="32" height="130" rx="12" fill="rgba(0,140,255,.35)"/>
+              <rect x="220" y="270" width="32" height="160" rx="12" fill="rgba(0,140,255,.45)"/>
+
+              <rect x="460" y="356" width="32" height="74" rx="12" fill="rgba(221,57,2,.18)"/>
+              <rect x="510" y="316" width="32" height="114" rx="12" fill="rgba(221,57,2,.26)"/>
+              <rect x="560" y="270" width="32" height="160" rx="12" fill="url(#g1)"/>
+
+              <rect x="790" y="372" width="32" height="58" rx="12" fill="rgba(37,211,102,.16)"/>
+              <rect x="840" y="338" width="32" height="92" rx="12" fill="rgba(37,211,102,.22)"/>
+              <rect x="890" y="300" width="32" height="130" rx="12" fill="rgba(37,211,102,.32)"/>
+            </g>
+
+            <!-- Line (trend) -->
+            <path d="M120 388 C240 320, 380 340, 520 286 C650 236, 800 252, 1040 238"
+                  fill="none" stroke="rgba(221,57,2,.65)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M120 388 C240 320, 380 340, 520 286 C650 236, 800 252, 1040 238"
+                  fill="none" stroke="rgba(255,74,22,.40)" stroke-width="12" stroke-linecap="round" opacity=".35"/>
+
+            <!-- Legend -->
+            <g font-family="system-ui, -apple-system, Segoe UI, Roboto" font-size="14" font-weight="800" fill="rgba(11,18,32,.70)">
+              <circle cx="96" cy="244" r="6" fill="rgba(0,140,255,.45)"/><text x="110" y="248">Google</text>
+              <circle cx="190" cy="244" r="6" fill="rgba(221,57,2,.55)"/><text x="204" y="248">Site</text>
+              <circle cx="258" cy="244" r="6" fill="rgba(37,211,102,.45)"/><text x="272" y="248">WhatsApp</text>
+            </g>
+          </svg>
+        </div>
+
         <div class="hero-mini" style="margin-top:14px;">
-          <div class="icon">⚡</div>
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 7l-9 10-5-5 1.4-1.4L12 14.2 19.6 6.6 21 7z"/></svg>
+          </div>
           <div>
             <strong>Checklist de conversão</strong>
-            <p>Seu cliente entende rápido o que você faz e chama no WhatsApp sem ficar com dúvida.</p>
+            <p>Seu cliente entende rápido e chama no WhatsApp sem ficar com dúvida.</p>
           </div>
         </div>
       </div>
@@ -986,43 +1119,74 @@
       <div class="fade-in">
         <h2>O que a NorteWork faz por você</h2>
         <p class="sub">
-          Você não compra “um site” — você compra <strong>uma vitrine digital</strong> que faz seu cliente te encontrar,
+          Você não compra “um site”. Você compra uma <strong>vitrine digital completa</strong> — feita para o cliente te encontrar,
           confiar e chamar no WhatsApp.
         </p>
       </div>
 
       <div class="grid-3">
         <div class="card fade-in">
-          <div class="icon">🌐</div>
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v14H4V4zm2 2v2h12V6H6zm0 4v6h12v-6H6zm-2 10h16v2H4v-2z"/></svg>
+          </div>
           <h3>Site que converte</h3>
-          <p>Rápido, bonito, responsivo e feito para gerar mensagens no WhatsApp.</p>
+          <p>Rápido, bonito, responsivo e com CTA estrategicamente posicionado para gerar mensagens.</p>
           <ul class="list">
-            <li class="li"><span class="check">✓</span>CTA forte + botão WhatsApp em pontos estratégicos</li>
-            <li class="li"><span class="check">✓</span>Prova social (depoimentos) + seção de confiança</li>
-            <li class="li"><span class="check">✓</span>Textos diretos: o cliente entende em 10 segundos</li>
+            <li class="li"><span class="check">✓</span>Botões WhatsApp em pontos “de decisão” (sem poluir)</li>
+            <li class="li"><span class="check">✓</span>Prova social + estrutura de confiança</li>
+            <li class="li"><span class="check">✓</span>Copy direta: entendimento em 10 segundos</li>
           </ul>
         </div>
 
         <div class="card fade-in">
-          <div class="icon">📍</div>
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2c3.9 0 7 3.1 7 7 0 5.2-7 13-7 13S5 14.2 5 9c0-3.9 3.1-7 7-7zm0 9.2A2.2 2.2 0 1 0 12 6.8a2.2 2.2 0 0 0 0 4.4z"/></svg>
+          </div>
           <h3>Google Business otimizado</h3>
-          <p>Para você aparecer no mapa quando procuram seu serviço na sua cidade.</p>
+          <p>Para você aparecer no mapa e nas buscas da sua cidade (especialmente “perto de mim”).</p>
           <ul class="list">
-            <li class="li"><span class="check">✓</span>Categoria, descrição e informações completas</li>
-            <li class="li"><span class="check">✓</span>Estratégia de avaliações e fotos que geram confiança</li>
-            <li class="li"><span class="check">✓</span>Mais chances de aparecer em “perto de mim”</li>
+            <li class="li"><span class="check">✓</span>Categoria, descrição, fotos e serviços completos</li>
+            <li class="li"><span class="check">✓</span>Estratégia de avaliações e prova de confiança</li>
+            <li class="li"><span class="check">✓</span>Mais chances no topo do mapa</li>
           </ul>
         </div>
 
         <div class="card fade-in">
-          <div class="icon">📸</div>
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5A4.5 4.5 0 1 1 7.5 13 4.5 4.5 0 0 1 12 8.5zm0 2A2.5 2.5 0 1 0 14.5 13 2.5 2.5 0 0 0 12 10.5zM17.8 8a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6z"/></svg>
+          </div>
           <h3>Instagram profissional</h3>
-          <p>Um perfil organizado, com cara de empresa e que vira conversa no WhatsApp.</p>
+          <p>Um perfil organizado, sério e pronto para converter em conversas (WhatsApp).</p>
           <ul class="list">
             <li class="li"><span class="check">✓</span>Bio otimizada + destaques prontos</li>
             <li class="li"><span class="check">✓</span>Identidade visual consistente</li>
             <li class="li"><span class="check">✓</span>Conteúdo com intenção de compra</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Segurança (reduz objeção) -->
+      <div class="confidence fade-in">
+        <div class="conf">
+          <div class="b">✓</div>
+          <div>
+            <strong>Estrutura pronta pra vender</strong>
+            <span>CTA, prova social e clareza do serviço — sem “site enfeite”.</span>
+          </div>
+        </div>
+        <div class="conf">
+          <div class="b">⚡</div>
+          <div>
+            <strong>Entrega objetiva</strong>
+            <span>Processo simples: diagnóstico → montagem → ativação e ajustes.</span>
+          </div>
+        </div>
+        <div class="conf">
+          <div class="b">📍</div>
+          <div>
+            <strong>Foco em cidade/bairro</strong>
+            <span>Otimização para termos “perto de mim” e busca local.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1033,7 +1197,7 @@
     <div class="wrap">
       <div class="fade-in">
         <h2>Como funciona (bem simples)</h2>
-        <p class="sub">Um processo curto e objetivo para você sair do “invisível” e começar a receber mensagens.</p>
+        <p class="sub">Um processo curto, profissional e objetivo para você sair do “invisível” e começar a receber mensagens.</p>
       </div>
 
       <div class="steps">
@@ -1050,7 +1214,7 @@
         <div class="step fade-in">
           <div class="num">3</div>
           <h3>Ativação e acompanhamento</h3>
-          <p>Você começa a receber contatos e a gente faz ajustes pra melhorar conversão.</p>
+          <p>Você começa a receber contatos e a gente ajusta para melhorar conversão.</p>
         </div>
       </div>
     </div>
@@ -1061,7 +1225,7 @@
     <div class="wrap">
       <div class="fade-in">
         <h2>Pacotes prontos (preços mais atrativos)</h2>
-        <p class="sub">Comece acessível e evolua conforme o volume de clientes. O quiz te ajuda a escolher o ideal.</p>
+        <p class="sub">Comece acessível e evolua conforme o volume. O diagnóstico indica o melhor pacote com base no seu caso.</p>
       </div>
 
       <div class="pricing">
@@ -1086,7 +1250,7 @@
           </ul>
 
           <div class="price-foot">
-            <b>Ideal</b> para quem quer ficar visível e profissional com investimento baixo.
+            <b>Ideal</b> para ficar visível e profissional com investimento baixo.
           </div>
 
           <div class="spacer"></div>
@@ -1231,25 +1395,34 @@
   <section class="section" id="prova">
     <div class="wrap">
       <div class="fade-in">
-        <h2>Prova social (coloque seus depoimentos reais aqui)</h2>
-        <p class="sub">Deixe esses exemplos como modelo e depois troque pelos depoimentos dos seus clientes.</p>
+        <h2>Prova social (substitua pelos depoimentos reais)</h2>
+        <p class="sub">Use estes como modelo e depois troque pelos depoimentos reais. Prova social aumenta muito a conversão.</p>
       </div>
 
       <div class="testi">
         <div class="card fade-in">
           <div class="pill"><span class="dot"></span> Mais mensagens</div>
           <p class="quote">“Organizou meu Google e o site ficou direto. Comecei a receber contato todo dia.”</p>
-          <div class="who"><span class="avatar">A</span> Ana • Loja local</div>
+          <div class="who">
+            <div class="left"><span class="avatar">A</span> Ana • Loja local</div>
+            <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          </div>
         </div>
         <div class="card fade-in">
           <div class="pill"><span class="dot"></span> Mais confiança</div>
           <p class="quote">“Antes eu parecia amador. Agora o perfil e o site passam muita credibilidade.”</p>
-          <div class="who"><span class="avatar">R</span> Rafael • Serviços</div>
+          <div class="who">
+            <div class="left"><span class="avatar">R</span> Rafael • Serviços</div>
+            <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          </div>
         </div>
         <div class="card fade-in">
           <div class="pill"><span class="dot"></span> Aparecer no mapa</div>
           <p class="quote">“Eu não aparecia no Google. Depois da otimização, me acham no ‘perto de mim’.”</p>
-          <div class="who"><span class="avatar">M</span> Marina • Beleza</div>
+          <div class="who">
+            <div class="left"><span class="avatar">M</span> Marina • Beleza</div>
+            <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1346,7 +1519,7 @@
         <path d="M20.52 3.48A11.88 11.88 0 0 0 12 0C5.38 0 0 5.38 0 12c0 2.11.55 4.17 1.6 6.0L0 24l6.17-1.62A11.94 11.94 0 0 0 12 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.21-3.48-8.52ZM12 22.03c-1.98 0-3.92-.52-5.62-1.5l-.4-.23-3.66.96.98-3.57-.26-.41A10 10 0 0 1 2 12C2 6.49 6.49 2 12 2c2.66 0 5.16 1.04 7.04 2.92A9.9 9.9 0 0 1 22 12c0 5.51-4.49 10.03-10 10.03Zm5.71-7.46c-.31-.16-1.85-.91-2.14-1.01-.29-.11-.5-.16-.71.16-.21.31-.82 1.01-1 1.22-.19.21-.37.23-.68.08-.31-.16-1.31-.48-2.49-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.19.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.71-.98-2.34-.26-.63-.52-.54-.71-.55h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61 0 1.54 1.13 3.02 1.29 3.23.16.21 2.22 3.39 5.38 4.76.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.37Z"/>
       </svg>
     </span>
-    <span>Chamar no WhatsApp</span>
+    <span id="waFloatText">Chamar no WhatsApp</span>
   </a>
 
   <script>
@@ -1370,10 +1543,13 @@
     const btnPricingWhats = document.getElementById("btnPricingWhats");
     const btnFooterCtaWhats = document.getElementById("btnFooterCtaWhats");
     const waFloat = document.getElementById("waFloat");
+    const waFloatText = document.getElementById("waFloatText");
+
+    // CTA “inteligente”: muda o texto/intent conforme a etapa
+    let smartWhatsMessage = `Olá! Vim pelo site da NorteWork. Quero aumentar meus clientes pelo Google/Instagram e receber mais mensagens no WhatsApp. Podemos conversar?`;
 
     function openWhatsDefault(){
-      const msg = `Olá! Vim pelo site da NorteWork. Quero aumentar meus clientes pelo Google/Instagram e receber mais mensagens no WhatsApp. Podemos conversar?`;
-      window.open(waLink(msg), "_blank");
+      window.open(waLink(smartWhatsMessage), "_blank");
     }
 
     [btnTopWhats, btnHeroWhats, btnFooterWhats, btnQuizWhats, btnPricingWhats, btnFooterCtaWhats].forEach(btn => {
@@ -1401,6 +1577,9 @@
       btn.addEventListener("click", ()=>{
         const pack = btn.getAttribute("data-pack");
         const msg = `Olá! Quero contratar o pacote *${pack}* da NorteWork. Pode me explicar os próximos passos?`;
+        smartWhatsMessage = msg; // mantém “inteligente” para o botão flutuante também
+        if(waFloatText) waFloatText.textContent = `Quero ${pack} no WhatsApp`;
+        waFloat.href = waLink(msg);
         window.open(waLink(msg), "_blank");
       });
     });
@@ -1412,6 +1591,34 @@
       });
     }, {threshold: .12});
     document.querySelectorAll(".fade-in").forEach(el=>io.observe(el));
+
+    // ========= NAV ATIVA (site “profissional”) =========
+    const nav = document.getElementById("nav");
+    const navLinks = nav ? Array.from(nav.querySelectorAll("a[data-sec]")) : [];
+    const sections = ["servicos","como","pacotes","quiz","faq"].map(id => document.getElementById(id)).filter(Boolean);
+
+    const navIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-sec") === id));
+          // muda CTA do floating conforme seção (inteligente)
+          if(id === "pacotes"){
+            if(waFloatText) waFloatText.textContent = "Quero fechar um pacote";
+            smartWhatsMessage = `Olá! Vim pelo site da NorteWork. Quero escolher o melhor pacote para meu negócio e receber mais mensagens no WhatsApp. Pode me orientar?`;
+          } else if(id === "quiz"){
+            if(waFloatText) waFloatText.textContent = "Enviar diagnóstico no WhatsApp";
+            smartWhatsMessage = `Olá! Vim pelo site da NorteWork. Vou fazer o diagnóstico agora e quero um plano para meu negócio.`;
+          } else {
+            if(waFloatText) waFloatText.textContent = "Chamar no WhatsApp";
+            smartWhatsMessage = `Olá! Vim pelo site da NorteWork. Quero aumentar meus clientes pelo Google/Instagram e receber mais mensagens no WhatsApp. Podemos conversar?`;
+          }
+          waFloat.href = waLink(smartWhatsMessage);
+        }
+      });
+    }, {rootMargin: "-45% 0px -50% 0px", threshold: 0.01});
+
+    sections.forEach(sec => navIO.observe(sec));
 
     // ========= QUIZ =========
     const quiz = [
@@ -1591,6 +1798,11 @@
 
       const texto = `Olá! Fiz o diagnóstico no site da NorteWork e quero um plano.\n\n• ${resumo}\n\nPacote recomendado: *${pack}*\nPode me orientar nos próximos passos?`;
 
+      // atualiza CTA inteligente global
+      smartWhatsMessage = texto;
+      if(waFloatText) waFloatText.textContent = `Enviar diagnóstico (${pack})`;
+      waFloat.href = waLink(texto);
+
       const html = `
         <div class="pill"><span class="dot"></span> Recomendação personalizada</div>
         <h3 class="q-title" style="margin-top:12px;">Seu pacote ideal: <span style="color:#7a1a02">${pack}</span></h3>
@@ -1609,18 +1821,17 @@
 
         <div class="spacer"></div>
         <p class="note">
-          Dica: quando você chamar no WhatsApp, eu já recebo seu diagnóstico e te respondo com um plano objetivo.
+          Dica: ao enviar, eu já recebo seu diagnóstico completo e respondo com um plano objetivo.
         </p>
       `;
 
       const panel = document.querySelector(".quiz-panel");
       panel.innerHTML = html;
-
-      waFloat.href = waLink(texto);
     }
 
     renderQuestion();
     updateProgress();
+    waFloat.href = waLink(smartWhatsMessage);
   </script>
 </body>
 </html>
